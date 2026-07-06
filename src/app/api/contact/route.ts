@@ -1,0 +1,46 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().min(1),
+  company: z.string().min(1),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  service: z.string().min(1),
+  message: z.string().min(10),
+  honeypot: z.string().max(0),
+});
+
+export async function POST(request: Request) {
+  try {
+    const body = await request.json();
+    const data = contactSchema.parse(body);
+
+    // TODO: [Client] Route form submissions to active business email
+    // Integration pending: send data to SITE_CONFIG.email
+    // Options: use Resend, SendGrid, or SMTP via a Vercel integration
+    console.log("Contact form submission:", {
+      to: "TODO: [Client] Provide business email",
+      from: data.email,
+      subject: `New inquiry from ${data.company} - ${data.service}`,
+      body: `Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nPhone: ${data.phone || "N/A"}\nService: ${data.service}\nMessage: ${data.message}`,
+    });
+
+    return NextResponse.json(
+      { success: true, message: "Inquiry received" },
+      { status: 200 },
+    );
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { success: false, message: "Validation failed", errors: error.issues },
+        { status: 400 },
+      );
+    }
+
+    return NextResponse.json(
+      { success: false, message: "Internal server error" },
+      { status: 500 },
+    );
+  }
+}
