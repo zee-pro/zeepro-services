@@ -12,8 +12,8 @@ The scope of this initial engagement (v1) is limited to creating a highly profes
 ## Assumptions
 - **Assumption 1: B2B First Audience.** We assume the primary audience consists of industry professionals evaluating Zeepro's credibility, rather than consumers looking for quick home repairs.
   - **Justification:** The business model relies on partnerships. Therefore, the tone, imagery, and structural flow of the site must reflect high-end B2B professionalism rather than aggressive direct-to-consumer sales tactics.
-- **Assumption 2: Interim Brand Identity.** We assume the initial design phase must proceed using an interim, typographic-heavy corporate aesthetic.
-  - **Justification:** Since no logo, color palette, or typography currently exists, development cannot wait for a finalized brand book. A minimal, stark aesthetic will be used as a placeholder to prevent blocking the engineering team.
+- **Assumption 2: Interim Brand Identity.** We assume the initial design phase must proceed using the interim brand palette (Deep Navy/Slate primary, Muted Gold accent) and a temporary text-based wordmark.
+  - **Justification:** Since no logo, official color palette, or typography currently exists, development cannot wait for a finalized brand book. The interim palette (Deep Navy/Slate, Muted Gold) will be used as a placeholder via CSS design tokens, allowing the final brand to be swapped in without code refactoring.
 
 ## Known Facts
 - **Company Name:** Zeepro
@@ -22,6 +22,9 @@ The scope of this initial engagement (v1) is limited to creating a highly profes
 - **Current Business Model:** Operations are currently driven exclusively through established relationships with contractors, brokers, and industry partners.
 - **Primary Business Goal:** To establish a professional online presence that builds trust and credibility.
 - **Secondary Goals:** Showcase service offerings, display company professionalism, provide clear contact information, and lay the technical groundwork for future expansion (such as project galleries and quote requests).
+- **Licensed Activities (10):** HVAC Installation & Maintenance, Air Filtration Systems, Ventilation Systems, Electromechanical Equipment Installation & Maintenance, Plumbing & Sanitary Contracting, Floor & Wall Tiling Works, Painting Contracting, Carpentry & Wood Flooring Works, Cladding Works, Steel Products Installation & Maintenance.
+- **Service Categories (4):** Mechanical & Electromechanical Services, Plumbing & Sanitary Works, Interior Finishing & Renovation, Steel & Cladding Solutions.
+- **Brand Status:** Logo TBD (interim text wordmark used). Interim palette: Deep Navy/Slate primary, Muted Gold accent. Final brand identity pending client approval. Implementation uses CSS design tokens for seamless future rebranding.
 
 ## Unknown Information
 - **Domain Name:** The official web address (e.g., zeepro.ae, zeepro.com) has not been selected or purchased.

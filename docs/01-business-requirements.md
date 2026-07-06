@@ -17,6 +17,8 @@ This document covers the business requirements for the v1 informational website 
 - **Capability Constraint:** The business is not structurally set up to process, estimate, or fulfill instant online quotations.
 - **Booking Mechanism:** All project scheduling and onboarding are handled offline via traditional sales and operational channels.
 - **Geographic Focus:** All business requirements and regulatory compliances are constrained to the United Arab Emirates (UAE) market.
+- **Licensed Activities (10):** HVAC Installation & Maintenance, Air Filtration Systems, Ventilation Systems, Electromechanical Equipment Installation & Maintenance, Plumbing & Sanitary Contracting, Floor & Wall Tiling Works, Painting Contracting, Carpentry & Wood Flooring Works, Cladding Works, Steel Products Installation & Maintenance.
+- **Service Categories (4):** Mechanical & Electromechanical Services, Plumbing & Sanitary Works, Interior Finishing & Renovation, Steel & Cladding Solutions.
 
 ## Unknown Information
 - **Value Proposition (USP):** What specific operational, financial, or quality metrics separate Zeepro from competing UAE mechanical, plumbing, finishing, and steel contracting firms?

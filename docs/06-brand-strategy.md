@@ -37,7 +37,21 @@ This document covers the interim typographic and color guidelines for the v1 web
 - **Consideration: Full Rebranding QA.** 
   - **Reasoning:** When the final brand book is delivered and implemented, the UX team must conduct a visual QA pass on the website to ensure the new colors meet WCAG (Web Content Accessibility Guidelines) contrast ratios.
 
+## Brand Status
+- **Logo:** TBD — a temporary text-based wordmark ("ZEEPRO") in dark slate will be used during development. The logo must be swappable without requiring layout changes.
+- **Brand Colors:** Interim Palette only (Deep Navy/Slate primary, Muted Gold accent). Final hex codes pending.
+- **Final Identity:** Pending client approval from brand agency.
+- **Implementation:** All colors and fonts use CSS design tokens (`@theme` directives) so the final brand identity can be applied without code refactoring.
+
 ## Interim Brand Guidelines (v1 Placeholder)
+
+### Visual Style
+The website must communicate the following attributes through all visual choices:
+- **Professionalism**
+- **Trust**
+- **Technical Expertise**
+- **Reliability**
+- **Execution Capability**
 
 ### Tone of Voice
 - **Authoritative but Accessible:** The copy should sound like an experienced engineer talking to a peer. Confident, direct, and free of marketing fluff.
@@ -45,13 +59,26 @@ This document covers the interim typographic and color guidelines for the v1 web
 
 ### Interim Visual Identity
 To unblock development, the design and engineering teams will use the following placeholder design system:
-- **Logo:** A clean, bold, sans-serif text logo ("ZEEPRO") in dark slate.
+- **Logo:** A clean, bold, sans-serif text wordmark ("ZEEPRO") in dark slate. Positioned in the header navigation; implemented as text to allow effortless future replacement with an SVG logo.
 - **Primary Color:** Deep Navy/Slate (Projects trust, stability, and corporate professionalism).
-- **Accent Color:** A muted Gold or Industrial Orange (Projects a subtle construction/hard-hat aesthetic without being visually overwhelming).
+- **Accent Color:** Muted Gold (Subtle accent conveying quality and technical precision, without being visually overwhelming).
 - **Typography:**
-  - **Headings:** Inter or Roboto (Strong, geometric, highly legible).
-  - **Body:** Inter or Roboto (Clean, modern, web-safe).
-- **Imagery:** High-quality, realistic stock photography focusing on completed structures, blueprints, or professional workers in safety gear (strictly avoiding overly staged/fake smiles).
+  - **Headings:** Geist (via `next/font/google`, set as CSS variable `--font-geist-sans`).
+  - **Body:** Geist (Same font family for visual consistency).
+- **Imagery:** Professional industrial imagery only. Approved subject matter includes:
+  - HVAC systems and mechanical installations
+  - Commercial buildings and construction sites
+  - Technical installations (electrical, plumbing, ventilation)
+  - Interior finishing work (tiling, flooring, painting)
+  - Engineering and blueprints
+  - Workshop and fabrication environments
+  - Steel structures and cladding
+- **Imagery — Strictly Avoid:**
+  - Generic illustrations or vector artwork
+  - Cartoon or abstract graphics
+  - SaaS-style abstract hero graphics
+  - Real-estate-only imagery (empty apartments, staged living rooms)
+  - Overly staged stock photography with fake smiles
 
 ## Revision History
 | Date | Author | Version | Notes |

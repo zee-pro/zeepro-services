@@ -16,7 +16,7 @@ This document covers the v1 site map, main navigation (header/footer), and the h
 - **Navigation Elements:** The site requires a persistent Header (with Main Navigation) and a rich Footer.
 - **Primary Pages:** Based on the B2B goals, the core pages are Home, About, Services, and Contact.
 - **No Private Areas:** There is no "User Dashboard," "Login," or "Client Portal" to account for in the v1 architecture.
-- **Licensed Activities:** The company holds licenses for HVAC, air filtration, ventilation, electromechanical equipment, plumbing, sanitary contracting, tiling, painting, carpentry, wood flooring, cladding, and steel products installation and maintenance.
+- **Licensed Activities (10):** HVAC Installation & Maintenance, Air Filtration Systems, Ventilation Systems, Electromechanical Equipment Installation & Maintenance, Plumbing & Sanitary Contracting, Floor & Wall Tiling Works, Painting Contracting, Carpentry & Wood Flooring Works, Cladding Works, Steel Products Installation & Maintenance.
 - **Service Groupings:** Services are organized into four categories: Mechanical & Electromechanical, Plumbing & Sanitary Works, Interior Finishing & Renovation, and Steel & Cladding Solutions.
 
 ## Unknown Information

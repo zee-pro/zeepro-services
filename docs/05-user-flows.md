@@ -49,7 +49,7 @@ This document covers the core v1 user journeys: validation/research, formal inqu
 **Goal:** Vet Zeepro's corporate legitimacy and request a capability statement.
 1. User lands on Home Page (Desktop).
 2. User clicks "About Us" in main navigation to verify company history and trade licenses.
-3. User clicks "Services -> Construction" to verify specific technical capabilities.
+3. User clicks "Services -> Mechanical & Electromechanical" to verify specific technical capabilities.
 4. Convinced of credibility, user clicks "Contact Us" in main navigation.
 5. User fills out formal contact form (Name, Company, Message) and submits.
 6. User reaches a "Thank You" confirmation screen.
