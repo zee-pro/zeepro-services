@@ -17,7 +17,7 @@ The scope of this initial engagement (v1) is limited to creating a highly profes
 
 ## Known Facts
 - **Company Name:** Zeepro
-- **Industry Sector:** Construction, Renovation, and Maintenance.
+- **Industry Sector:** Licensed mechanical, plumbing, interior finishing, and steel contracting services.
 - **Geographic Market:** United Arab Emirates (UAE).
 - **Current Business Model:** Operations are currently driven exclusively through established relationships with contractors, brokers, and industry partners.
 - **Primary Business Goal:** To establish a professional online presence that builds trust and credibility.
@@ -51,3 +51,4 @@ The scope of this initial engagement (v1) is limited to creating a highly profes
 | Date | Author | Version | Notes |
 |---|---|---|---|
 | 2026-07-06 | Senior Architect / PM | 1.0 | Initial formulation of the project overview based on kickoff constraints. |
+| 2026-07-06 | Stakeholder | 2.0 | Updated industry sector to reflect licensed mechanical, plumbing, interior finishing, and steel contracting services. |

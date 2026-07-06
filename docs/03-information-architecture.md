@@ -9,20 +9,20 @@ This document covers the v1 site map, main navigation (header/footer), and the h
 ## Assumptions
 - **Assumption 1: Flat Hierarchy is Optimal.** We assume a "flat" information architecture (where every main page is accessible within one click from the homepage) is the best approach for v1.
   - **Justification:** B2B users are time-poor. Burying services or contact information deep within sub-menus increases bounce rates. A straightforward, shallow architecture projects transparency and efficiency.
-- **Assumption 2: Dedicated Sub-pages for Services.** We assume each major service category (Construction, Renovation, Maintenance) requires its own dedicated sub-page, rather than just an anchor link on a single long "Services" page.
-  - **Justification:** Dedicated pages allow for much stronger SEO targeting per service category in the UAE market, and provide enough space to detail the specific B2B capabilities, processes, and equipment of each division without overwhelming the user.
+- **Assumption 2: Dedicated Sub-pages for Services.** We assume each major service category (Mechanical & Electromechanical, Plumbing & Sanitary, Interior Finishing & Renovation, Steel & Cladding) requires its own dedicated sub-page, rather than just an anchor link on a single long "Services" page.
+  - **Justification:** Dedicated pages allow for much stronger SEO targeting per service category in the UAE market, and provide enough space to detail the specific technical capabilities, licensed activities, and processes of each division without overwhelming the user.
 
 ## Known Facts
 - **Navigation Elements:** The site requires a persistent Header (with Main Navigation) and a rich Footer.
 - **Primary Pages:** Based on the B2B goals, the core pages are Home, About, Services, and Contact.
 - **No Private Areas:** There is no "User Dashboard," "Login," or "Client Portal" to account for in the v1 architecture.
+- **Licensed Activities:** The company holds licenses for HVAC, air filtration, ventilation, electromechanical equipment, plumbing, sanitary contracting, tiling, painting, carpentry, wood flooring, cladding, and steel products installation and maintenance.
+- **Service Groupings:** Services are organized into four categories: Mechanical & Electromechanical, Plumbing & Sanitary Works, Interior Finishing & Renovation, and Steel & Cladding Solutions.
 
 ## Unknown Information
 - **Legal/Footer Pages:** Are specific legal pages (e.g., Privacy Policy, Terms of Service) legally mandated for launch based on UAE data laws, or will a simple footer disclaimer suffice?
-- **Service Granularity:** Are there sub-categories within "Maintenance" (e.g., MEP, HVAC, Civil) that are significant enough to warrant their own standalone pages, or should they remain descriptive sections within the main Maintenance page?
 
 ## TODOs
-- `TODO: [Stakeholders]` Confirm the exact names of the core service offerings to finalize the `Services` dropdown menu.
 - `TODO: [Legal/Client]` Confirm requirements and provide the text for the Privacy Policy and Terms and Conditions pages, if mandated.
 
 ## Dependencies
@@ -46,9 +46,10 @@ This document covers the v1 site map, main navigation (header/footer), and the h
 │   ├── Company Profile (On-page section)
 │   └── Certifications & Licenses (On-page section)
 ├── Services (/services)
-│   ├── Construction (/services/construction)
-│   ├── Renovation (/services/renovation)
-│   └── Maintenance (/services/maintenance)
+│   ├── Mechanical & Electromechanical (/services/mechanical-electromechanical)
+│   ├── Plumbing & Sanitary Works (/services/plumbing-sanitary)
+│   ├── Interior Finishing & Renovation (/services/interior-finishing)
+│   └── Steel & Cladding Solutions (/services/steel-cladding)
 ├── Contact Us (/contact)
 └── [WhatsApp Quick Action - Floating/Persistent on all pages]
 
@@ -64,3 +65,4 @@ This document covers the v1 site map, main navigation (header/footer), and the h
 | Date | Author | Version | Notes |
 |---|---|---|---|
 | 2026-07-06 | UX Strategist | 1.0 | Initial IA generation based on B2B product requirements. |
+| 2026-07-06 | Stakeholder | 2.0 | Updated service categories to reflect licensed activities: Mechanical & Electromechanical, Plumbing & Sanitary Works, Interior Finishing & Renovation, Steel & Cladding Solutions. Removed generic Construction / Renovation / Maintenance structure. |

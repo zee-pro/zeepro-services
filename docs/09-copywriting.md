@@ -44,11 +44,13 @@ This document currently serves as a *Content Brief and Placeholder Matrix* for t
 - **Home Page Hero Headline:** [Pending]
 - **Home Page Sub-headline:** [Pending]
 - **About Us - Our Story:** [Pending]
-- **Service: Construction Summary:** [Pending]
-- **Service: Renovation Summary:** [Pending]
-- **Service: Maintenance Summary:** [Pending]
+- **Service: Mechanical & Electromechanical Summary:** [Pending]
+- **Service: Plumbing & Sanitary Works Summary:** [Pending]
+- **Service: Interior Finishing & Renovation Summary:** [Pending]
+- **Service: Steel & Cladding Solutions Summary:** [Pending]
 
 ## Revision History
 | Date | Author | Version | Notes |
 |---|---|---|---|
 | 2026-07-06 | Copywriter / UX | 1.0 | Structural copy brief created. Content pending client input. |
+| 2026-07-06 | Stakeholder | 2.0 | Updated content intake matrix to reflect new service categories: Mechanical & Electromechanical, Plumbing & Sanitary Works, Interior Finishing & Renovation, Steel & Cladding Solutions. |

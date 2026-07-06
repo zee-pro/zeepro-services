@@ -8,9 +8,9 @@ The scope is limited to the v1 informational website. It encompasses the core us
 
 ## Assumptions
 - **Assumption 1: Mobile-First Usage.** We assume the majority of users will access the site via mobile devices.
-  - **Justification:** Mobile internet penetration in the UAE is exceptionally high. Contractors, brokers, and facility managers are frequently on-site or traveling, making mobile the primary touchpoint for evaluating Zeepro's capabilities.
+  - **Justification:** Mobile internet penetration in the UAE is exceptionally high. Contractors, facility managers, and property partners are frequently on-site or traveling, making mobile the primary touchpoint for evaluating Zeepro's capabilities.
 - **Assumption 2: WhatsApp is a Critical Channel.** We assume a direct WhatsApp contact integration is required.
-  - **Justification:** WhatsApp is the dominant B2B and B2C communication tool in the UAE construction and maintenance sectors. A one-click WhatsApp action is essential for reducing friction in inquiries.
+  - **Justification:** WhatsApp is the dominant B2B and B2C communication tool in the UAE construction, mechanical, and finishing sectors. A one-click WhatsApp action is essential for reducing friction in inquiries.
 
 ## Known Facts
 - **Functional Limitations:** The product will *not* include user authentication, e-commerce checkouts, interactive pricing calculators, or customer portals.

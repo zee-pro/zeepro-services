@@ -4,7 +4,7 @@
 To define the core business objectives, key performance indicators (KPIs), operational constraints, and target market dynamics for the Zeepro website. This document ensures all subsequent product, design, and engineering decisions directly support the company's established business model.
 
 ## Scope
-This document covers the business requirements for the v1 informational website launch. It specifically addresses how the website will serve Zeepro's current B2B (Business-to-Business) operational model within the UAE construction, renovation, and maintenance sectors.
+This document covers the business requirements for the v1 informational website launch. It specifically addresses how the website will serve Zeepro's current B2B (Business-to-Business) operational model within the UAE mechanical, plumbing, interior finishing, and steel contracting sectors.
 
 ## Assumptions
 - **Assumption 1: Audience Journey Focus.** We assume the primary user journey is investigative rather than transactional. 
@@ -19,7 +19,7 @@ This document covers the business requirements for the v1 informational website 
 - **Geographic Focus:** All business requirements and regulatory compliances are constrained to the United Arab Emirates (UAE) market.
 
 ## Unknown Information
-- **Value Proposition (USP):** What specific operational, financial, or quality metrics separate Zeepro from competing UAE maintenance and construction firms?
+- **Value Proposition (USP):** What specific operational, financial, or quality metrics separate Zeepro from competing UAE mechanical, plumbing, finishing, and steel contracting firms?
 - **Target Partner Profiles:** Are we primarily targeting real estate agencies, commercial facility managers, or independent construction brokers?
 - **Success Metrics (KPIs):** What constitutes a "successful" website for the executive team in the first 6–12 months? (e.g., Number of partnership inquiries submitted, bounce rate reduction, brand visibility).
 - **Compliance/Licensing:** Are there specific UAE trade licenses or municipal certifications (e.g., Dubai Municipality approvals, Civil Defense) that must be legally displayed on the website to establish trust?
@@ -45,3 +45,4 @@ This document covers the business requirements for the v1 informational website 
 | Date | Author | Version | Notes |
 |---|---|---|---|
 | 2026-07-06 | Product Manager / BA | 1.0 | Initial generation of business requirements aligning with B2B operational constraints. |
+| 2026-07-06 | Stakeholder | 2.0 | Updated scope to reflect licensed mechanical, plumbing, interior finishing, and steel contracting services. |

@@ -21,8 +21,8 @@ This document covers the technical SEO requirements (meta tags, site speed, inde
 - **Target Keywords:** The specific localized long-tail keywords (e.g., "commercial MEP maintenance Dubai") are undefined until the exact service offerings are finalized by the stakeholders.
 
 ## TODOs
-- `TODO: [SEO Specialist]` Conduct localized keyword research for the UAE construction and maintenance sector to map to the individual `Services` pages.
-- `TODO: [Engineering]` Ensure an XML sitemap and `robots.txt` file are automatically generated and submitted to Google Search Console upon launch.
+- `TODO: [SEO Specialist]` Conduct localized keyword research for the UAE mechanical, plumbing, finishing, and steel sectors to map to the individual `Services` sub-pages.
+- `TODO: [Engineering]` Ensure an XML sitemap and `robots.txt` file are automatically generated and submitted to Google Search Console upon launch. Sitemap must include all four service sub-pages.
 - `TODO: [Client]` Create and verify a Google Business Profile (Google My Business) for Zeepro to dominate the local map pack for branded searches.
 
 ## Dependencies
@@ -31,7 +31,7 @@ This document covers the technical SEO requirements (meta tags, site speed, inde
 
 ## Acceptance Criteria
 - Every page has a unique, optimized `<title>` tag and `<meta name="description">`.
-- The URL structure is clean, lowercase, and uses hyphens (e.g., `zeepro.ae/services/commercial-renovation`).
+- The URL structure is clean, lowercase, and uses hyphens (e.g., `zeepro.ae/services/mechanical-electromechanical`).
 - All images contain descriptive `alt` text for accessibility and image search indexing.
 - There is only one `<h1>` tag per page.
 
@@ -43,3 +43,4 @@ This document covers the technical SEO requirements (meta tags, site speed, inde
 | Date | Author | Version | Notes |
 |---|---|---|---|
 | 2026-07-06 | SEO Specialist | 1.0 | Initial foundational SEO strategy mapped for v1 launch. |
+| 2026-07-06 | Stakeholder | 2.0 | Updated keyword research scope and URL examples to reflect new mechanical, plumbing, finishing, and steel service categories. |
