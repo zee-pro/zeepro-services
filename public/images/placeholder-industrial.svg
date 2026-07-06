@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9953c" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#c9953c" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#accent)"/>
+  <!-- Grid lines -->
+  <g stroke="#c9953c" stroke-opacity="0.08" stroke-width="1">
+    <line x1="0" y1="270" x2="1920" y2="270"/>
+    <line x1="0" y1="540" x2="1920" y2="540"/>
+    <line x1="0" y1="810" x2="1920" y2="810"/>
+    <line x1="480" y1="0" x2="480" y2="1080"/>
+    <line x1="960" y1="0" x2="960" y2="1080"/>
+    <line x1="1440" y1="0" x2="1440" y2="1080"/>
+  </g>
+  <!-- Architectural lines -->
+  <g stroke="#c9953c" stroke-opacity="0.12" stroke-width="1.5" fill="none">
+    <rect x="240" y="200" width="1440" height="680" rx="4"/>
+    <rect x="360" y="320" width="320" height="440" rx="2"/>
+    <rect x="760" y="320" width="400" height="440" rx="2"/>
+    <rect x="1240" y="320" width="320" height="440" rx="2"/>
+    <line x1="960" y1="200" x2="960" y2="880"/>
+  </g>
+  <!-- Diagonal technical lines -->
+  <g stroke="#c9953c" stroke-opacity="0.06" stroke-width="1">
+    <line x1="0" y1="0" x2="400" y2="400"/>
+    <line x1="600" y1="0" x2="1000" y2="400"/>
+    <line x1="1200" y1="0" x2="1600" y2="400"/>
+    <line x1="1600" y1="0" x2="1920" y2="320"/>
+    <line x1="0" y1="600" x2="400" y2="1000"/>
+    <line x1="400" y1="680" x2="800" y2="1080"/>
+    <line x1="800" y1="680" x2="1200" y2="1080"/>
+    <line x1="1200" y1="680" x2="1600" y2="1080"/>
+  </g>
+  <!-- Small detail marks -->
+  <g fill="#c9953c" fill-opacity="0.15">
+    <circle cx="480" cy="270" r="3"/>
+    <circle cx="960" cy="540" r="3"/>
+    <circle cx="1440" cy="810" r="3"/>
+    <circle cx="480" cy="810" r="3"/>
+    <circle cx="1440" cy="270" r="3"/>
+  </g>
+  <!-- Label -->
+  <text x="960" y="960" font-family="system-ui, sans-serif" font-size="14" fill="#c9953c" fill-opacity="0.3" text-anchor="middle" letter-spacing="4">ZEEPRO — INDUSTRIAL PLACEHOLDER</text>
+</svg>
