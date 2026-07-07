@@ -4,10 +4,10 @@ export const SITE_CONFIG = {
   description:
     "Zeepro is a UAE-based licensed contractor specializing in mechanical, plumbing, interior finishing, and steel services.",
   url: "https://zeepro.ae",
-  email: "TODO: [Client] Provide business email",
-  phone: "TODO: [Client] Provide business phone",
-  whatsappNumber: "TODO: [Client] Provide WhatsApp number",
-  address: "TODO: [Client] Provide physical address",
+  email: "zeepro.services@gmail.com",
+  phone: "+971504786043",
+  whatsappNumber: "971504786043",
+  address: "Zeepro Services, Near Mashreq Metro Station (R33), Dubai, UAE",
 } as const;
 
 export interface NavLink {
