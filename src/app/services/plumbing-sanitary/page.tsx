@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ServiceDetail } from "@/components/services/service-detail";
+import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Plumbing & Sanitary Works",
@@ -34,6 +35,7 @@ export default function PlumbingSanitaryPage() {
         "plumbers deliver reliable, code-compliant work."
       }
       capabilities={capabilities}
+      image={IMAGES.services.plumbingHero}
     />
   );
 }

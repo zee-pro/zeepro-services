@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ServiceDetail } from "@/components/services/service-detail";
+import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Steel & Cladding Solutions",
@@ -34,6 +35,7 @@ export default function SteelCladdingPage() {
         "code-compliant results."
       }
       capabilities={capabilities}
+      image={IMAGES.services.steelHero}
     />
   );
 }

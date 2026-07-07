@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ServiceDetail } from "@/components/services/service-detail";
+import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Interior Finishing & Renovation",
@@ -34,6 +35,7 @@ export default function InteriorFinishingPage() {
         "deliver high-quality finishes on schedule."
       }
       capabilities={capabilities}
+      image={IMAGES.services.interiorHero}
     />
   );
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ServiceDetail } from "@/components/services/service-detail";
+import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Mechanical & Electromechanical Services",
@@ -35,6 +36,7 @@ export default function MechanicalElectromechanicalPage() {
         "full regulatory compliance."
       }
       capabilities={capabilities}
+      image={IMAGES.services.mechanicalHero}
     />
   );
 }
