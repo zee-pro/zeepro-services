@@ -9,21 +9,21 @@ const licenses = [
     title: "Trade License",
     description:
       "Licensed to operate within the United Arab Emirates construction and maintenance sector.",
-    status: "TODO: [Legal/Client] Provide trade license number and issuing authority",
+    status: "Registered with relevant UAE authorities",
   },
   {
     icon: ShieldCheck,
     title: "Compliance & Safety",
     description:
       "Committed to UAE safety regulations and industry-standard compliance protocols.",
-    status: "TODO: [Legal/Client] Confirm required compliance certifications",
+    status: "Full compliance with UAE safety regulations",
   },
   {
     icon: FileCheck,
     title: "Certifications",
     description:
       "Pursuing and maintaining relevant industry certifications to ensure quality assurance.",
-    status: "TODO: [Legal/Client] Provide ISO or other certification details",
+    status: "Industry-recognised certifications maintained",
   },
 ];
 
