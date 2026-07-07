@@ -186,14 +186,16 @@ export function Footer() {
                   </span>
                 </button>
               </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="size-4 shrink-0 text-accent" aria-hidden="true" />
-                <span className="text-xs font-medium text-primary-foreground/40">
-                  Address
-                </span>
-                <span className="ms-auto text-sm text-primary-foreground/60">
-                  {SITE_CONFIG.address}
-                </span>
+              <li className="flex gap-3">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                <div>
+                  <span className="text-xs font-medium text-primary-foreground/40">
+                    Address
+                  </span>
+                  <p className="text-sm text-primary-foreground/60">
+                    {SITE_CONFIG.address}
+                  </p>
+                </div>
               </li>
             </ul>
           </div>

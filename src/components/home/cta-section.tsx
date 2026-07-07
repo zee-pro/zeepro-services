@@ -8,7 +8,7 @@ import { SOCIAL_LINKS } from "@/lib/constants";
 
 export function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-accent py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-accent py-24 sm:py-32 selection:bg-accent-foreground/15 selection:text-accent-foreground">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,oklch(1_0_0/0.1),transparent_50%)]"
