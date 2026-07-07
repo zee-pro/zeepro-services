@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 import { IMAGES } from "@/lib/images";
 
 const serviceHighlights = [
-  { label: "Mechanical & Electromechanical" },
-  { label: "Plumbing & Sanitary Works" },
-  { label: "Interior Finishing & Renovation" },
-  { label: "Steel & Cladding Solutions" },
+  { label: "Mechanical & Electromechanical", href: "/services/mechanical-electromechanical" },
+  { label: "Plumbing & Sanitary Works", href: "/services/plumbing-sanitary" },
+  { label: "Interior Finishing & Renovation", href: "/services/interior-finishing" },
+  { label: "Steel & Cladding Solutions", href: "/services/steel-cladding" },
 ];
 
 const trustIndicators = [
@@ -138,8 +138,9 @@ export function Hero() {
               </p>
               <div className="space-y-4">
                 {serviceHighlights.map((service, index) => (
-                  <div
+                  <Link
                     key={service.label}
+                    href={service.href}
                     className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-primary-foreground/5"
                   >
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-md border border-accent/40 bg-accent/15 text-xs font-bold text-accent drop-shadow-sm">
@@ -151,7 +152,7 @@ export function Hero() {
                       </p>
                     </div>
                     <ChevronRight className="ms-auto size-4 text-primary-foreground/20 transition-transform group-hover:translate-x-0.5" />
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
