@@ -1,26 +1,17 @@
 export const IMAGES = {
   hero: {
-    src: "https://images.unsplash.com/photo-1541888946425-d81bb1922252?auto=format&fit=crop&w=1920&q=80",
-    alt: "Commercial construction project",
+    src: "/images/hero/hero-bg.jpg",
+    alt: "Zeepro industrial construction and engineering services background",
   },
-
   services: {
-    mechanical:
-      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=75",
-
-    plumbing:
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=75",
-
-    interior:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=75",
-
-    steel:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=75",
+    mechanical: "/images/services/mechanical2.jpg",
+    plumbing: "/images/services/plumbing.jpg",
+    interior: "/images/services/interior.jpg",
+    steel: "/images/services/steel.jpg",
+    mechanicalHero: "/images/services/mechanical.jpg",
+    plumbingHero: "/images/services/plumbing2.jpg",
+    interiorHero: "/images/services/interior2.jpg",
+    steelHero: "/images/services/steel.jpg",
   },
-
-  about:
-    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=75",
+  about: "/images/about/about-bg.jpg",
 } as const;
-
-export const CONSTRUCTION_HERO_FALLBACK =
-  "https://images.unsplash.com/photo-1541888946425-d81bb1922252?auto=format&fit=crop&w=1920&q=80";
