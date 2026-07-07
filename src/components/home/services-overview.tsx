@@ -170,11 +170,11 @@ export function ServicesOverview() {
                   <div className="flex items-center gap-3">
                     <div className="flex size-10 items-center justify-center rounded-lg bg-accent/20 backdrop-blur-sm">
                       <service.icon
-                        className="size-5 text-accent"
+                        className="size-5 text-accent drop-shadow-sm"
                         aria-hidden="true"
                       />
                     </div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-accent">
+              <span className="rounded-md bg-black/30 px-2 py-0.5 text-xs font-semibold uppercase tracking-widest text-accent backdrop-blur-sm drop-shadow-sm">
                     {service.label}
                   </span>
                 </div>
@@ -201,7 +201,7 @@ export function ServicesOverview() {
                   </ul>
 
                   {/* CTA */}
-                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-accent transition-colors group-hover:text-accent/80">
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-accent drop-shadow-sm">
                     View service details
                     <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
                   </div>

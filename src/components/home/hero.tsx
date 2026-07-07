@@ -102,7 +102,7 @@ export function Hero() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
+                  className="border-white/40 bg-white/5 text-primary-foreground hover:bg-white/15"
                 >
                   Explore Our Services
                 </Button>
@@ -142,7 +142,7 @@ export function Hero() {
                     key={service.label}
                     className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-primary-foreground/5"
                   >
-                    <span className="flex size-8 shrink-0 items-center justify-center rounded-md border border-accent/30 bg-accent/10 text-xs font-bold text-accent">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-md border border-accent/40 bg-accent/15 text-xs font-bold text-accent drop-shadow-sm">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div>

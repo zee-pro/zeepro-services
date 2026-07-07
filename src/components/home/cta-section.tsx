@@ -39,7 +39,7 @@ export function CTASection() {
             >
               <Button
                 size="lg"
-                className="gap-2 bg-accent-foreground text-background hover:bg-accent-foreground/90"
+                className="gap-2 bg-accent-foreground text-primary hover:bg-accent-foreground/90"
               >
                 <MessageCircle className="size-4" />
                 Message on WhatsApp
