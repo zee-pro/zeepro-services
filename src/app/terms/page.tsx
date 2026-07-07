@@ -12,10 +12,9 @@ export default function TermsPage() {
         Terms &amp; Conditions
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated: [Date pending]
+        Last updated: July 7, 2026
       </p>
 
-      {/* TODO: [Legal/Client] Provide complete Terms & Conditions text */}
       <div className="mt-8 space-y-6 text-muted-foreground">
         <p>
           These Terms and Conditions govern your use of the Zeepro website and
@@ -73,10 +72,6 @@ export default function TermsPage() {
           </p>
         </section>
 
-        <p className="border-t border-border pt-6 text-xs italic text-muted-foreground/60">
-          Full Terms and Conditions text pending client legal review and
-          approval.
-        </p>
       </div>
     </div>
   );

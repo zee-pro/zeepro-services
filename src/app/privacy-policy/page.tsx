@@ -12,10 +12,9 @@ export default function PrivacyPolicyPage() {
         Privacy Policy
       </h1>
       <p className="mt-2 text-sm text-muted-foreground">
-        Last updated: [Date pending]
+        Last updated: July 7, 2026
       </p>
 
-      {/* TODO: [Legal/Client] Provide complete Privacy Policy text */}
       <div className="mt-8 space-y-6 text-muted-foreground">
         <p>
           This Privacy Policy describes how Zeepro collects, uses, and
@@ -64,9 +63,6 @@ export default function PrivacyPolicyPage() {
           </p>
         </section>
 
-        <p className="border-t border-border pt-6 text-xs italic text-muted-foreground/60">
-          Full Privacy Policy text pending client legal review and approval.
-        </p>
       </div>
     </div>
   );
