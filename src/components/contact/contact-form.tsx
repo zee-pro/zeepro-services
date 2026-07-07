@@ -39,6 +39,7 @@ const SERVICE_OPTIONS = [
 
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -60,6 +61,7 @@ export function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
+      setSubmitError(null);
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -73,7 +75,7 @@ export function ContactForm() {
       setIsSubmitted(true);
       reset();
     } catch {
-      // TODO: Show user-friendly error toast/notification
+      setSubmitError("Something went wrong. Please try again or contact us directly.");
     }
   };
 
@@ -226,10 +228,14 @@ export function ContactForm() {
           </div>
         </div>
 
+        {submitError && (
+          <p className="mt-4 text-sm text-destructive">{submitError}</p>
+        )}
+
         <Button
           type="submit"
           size="lg"
-          className="mt-6 gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
+          className="mt-4 gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
