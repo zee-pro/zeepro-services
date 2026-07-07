@@ -11,9 +11,9 @@ const services = [
     id: "mechanical",
     title: "Mechanical & Electromechanical",
     description:
-      "HVAC installation, air filtration, ventilation, and electromechanical equipment services.",
+      "Home AC, HVAC installation, air filtration, ventilation, and electromechanical equipment services.",
     longDescription:
-      "Comprehensive mechanical and electromechanical solutions for commercial and industrial facilities. Our licensed technicians deliver installation, maintenance, and optimisation across all major HVAC and air systems.",
+      "Comprehensive mechanical and electromechanical solutions for residential, commercial, and industrial facilities. Our licensed technicians handle home AC installation and repair (window, split, cassette, and central units), HVAC systems, air filtration, ventilation, and electromechanical equipment.",
     icon: Fan,
     href: "/services/mechanical-electromechanical",
     image: IMAGES.services.mechanical,
@@ -21,9 +21,9 @@ const services = [
     border: "border-blue-800/30",
     label: "HVAC & Air Systems",
     capabilities: [
+      "Home AC — window, split, cassette & central",
       "HVAC installation & maintenance",
       "Air filtration systems",
-      "Ventilation engineering",
       "Electromechanical servicing",
     ],
   },

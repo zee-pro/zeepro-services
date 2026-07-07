@@ -17,13 +17,13 @@ const services = [
   {
     title: "Mechanical & Electromechanical",
     description:
-      "Comprehensive HVAC, air filtration, ventilation, and electromechanical services for commercial and industrial facilities across the UAE.",
+      "Comprehensive home AC, HVAC, air filtration, ventilation, and electromechanical services for residential, commercial, and industrial clients across the UAE.",
     icon: Fan,
     href: "/services/mechanical-electromechanical",
     capabilities: [
+      "Home AC — window, split, cassette & central units",
       "HVAC installation and maintenance",
       "Air filtration systems",
-      "Ventilation system engineering",
       "Electromechanical equipment servicing",
     ],
   },
