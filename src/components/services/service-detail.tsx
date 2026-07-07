@@ -11,7 +11,6 @@ interface ServiceDetailProps {
   description: string;
   capabilities: string[];
   image: string;
-  todoNote?: string;
 }
 
 export function ServiceDetail({
@@ -19,7 +18,6 @@ export function ServiceDetail({
   description,
   capabilities,
   image,
-  todoNote,
 }: ServiceDetailProps) {
   return (
     <>
@@ -72,11 +70,6 @@ export function ServiceDetail({
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-primary-foreground/70">
               {description}
             </p>
-            {todoNote && (
-              <p className="mt-2 text-xs italic text-primary-foreground/40">
-                {todoNote}
-              </p>
-            )}
           </motion.div>
         </div>
       </section>
