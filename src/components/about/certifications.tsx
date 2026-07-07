@@ -29,8 +29,13 @@ const licenses = [
 
 export function Certifications() {
   return (
-    <section className="bg-muted/30 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-muted/50 py-24 sm:py-32">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,var(--color-accent)/3%,transparent_50%)]"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,11 +43,13 @@ export function Certifications() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
+            Credentials
+          </p>
+          <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
             Certifications &amp; Licenses
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            {/* TODO: [Copywriter] Certifications intro text */}
             Zeepro operates with full compliance under UAE regulations,
             ensuring every project meets the required legal and safety
             standards.
@@ -59,19 +66,21 @@ export function Certifications() {
           {licenses.map((item) => (
             <div
               key={item.title}
-              className="rounded-xl border border-border bg-background p-6"
+              className="rounded-xl border border-border bg-background p-6 transition-colors hover:border-accent/20 sm:p-8"
             >
-              <item.icon
-                className="size-8 text-primary"
-                aria-hidden="true"
-              />
+              <div className="flex size-10 items-center justify-center rounded-lg bg-accent/10">
+                <item.icon
+                  className="size-5 text-accent"
+                  aria-hidden="true"
+                />
+              </div>
               <h3 className="mt-4 font-semibold text-foreground">
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {item.description}
               </p>
-              <p className="mt-3 text-xs italic text-muted-foreground/60">
+              <p className="mt-4 text-xs italic text-muted-foreground/40">
                 {item.status}
               </p>
             </div>

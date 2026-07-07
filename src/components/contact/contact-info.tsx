@@ -30,31 +30,35 @@ const contactDetails = [
 
 export function ContactInfo() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-bold tracking-tight text-foreground">
+        <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+          Contact
+        </p>
+        <h2 className="mt-1 text-2xl font-bold text-foreground">
           Get in Touch
         </h2>
         <p className="mt-2 text-muted-foreground">
-          {/* TODO: [Copywriter] Contact page intro copy */}
           Ready to discuss your project? Reach out to Zeepro through any of the
           channels below or use the contact form.
         </p>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         {contactDetails.map((item) => {
           const Icon = item.icon;
           const content = (
             <div className="flex items-center gap-4">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
-                <Icon className="size-5 text-primary" aria-hidden="true" />
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                <Icon className="size-5 text-accent" aria-hidden="true" />
               </div>
               <div>
-                <p className="text-sm font-medium text-foreground">
+                <p className="text-xs font-medium text-muted-foreground/60">
                   {item.label}
                 </p>
-                <p className="text-sm text-muted-foreground">{item.value}</p>
+                <p className="text-sm font-medium text-foreground">
+                  {item.value}
+                </p>
               </div>
             </div>
           );
@@ -64,7 +68,7 @@ export function ContactInfo() {
               <a
                 key={item.label}
                 href={item.href}
-                className="block rounded-lg p-3 transition-colors hover:bg-muted/50"
+                className="block rounded-xl border border-border bg-background p-4 transition-all hover:border-accent/20 hover:shadow-sm"
                 {...(item.label === "WhatsApp"
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
@@ -77,7 +81,7 @@ export function ContactInfo() {
           return (
             <div
               key={item.label}
-              className="rounded-lg p-3"
+              className="rounded-xl border border-border bg-background p-4"
             >
               {content}
             </div>

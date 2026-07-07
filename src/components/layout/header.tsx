@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
+import { Button } from "@/components/ui/button";
 
 export function Header() {
   const pathname = usePathname();
@@ -13,12 +14,15 @@ export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <header className="sticky inset-0 z-50 h-16 w-full border-b border-border bg-background/95 backdrop-blur-xs">
+    <header className="sticky inset-0 z-50 h-16 w-full border-b border-border/50 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="text-xl font-bold tracking-tight text-primary"
+          className="flex items-center gap-2 text-xl font-bold tracking-tight text-foreground"
         >
+          <span className="flex size-8 items-center justify-center rounded-lg bg-accent text-xs font-bold text-accent-foreground">
+            Z
+          </span>
           {SITE_CONFIG.name}
         </Link>
 
@@ -46,7 +50,7 @@ export function Header() {
                     className={cn(
                       "inline-flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted",
                       isActive
-                        ? "text-primary"
+                        ? "text-foreground"
                         : "text-muted-foreground hover:text-foreground",
                     )}
                     aria-expanded={openDropdown === item.label}
@@ -57,7 +61,7 @@ export function Header() {
                   </Link>
                   {openDropdown === item.label && (
                     <div
-                      className="absolute start-0 top-full mt-1 w-48 rounded-lg border border-border bg-popover p-1 shadow-lg"
+                      className="absolute start-0 top-full mt-1 w-56 rounded-xl border border-border bg-popover p-1.5 shadow-lg"
                       role="menu"
                     >
                       {item.children.map((child) => (
@@ -65,9 +69,9 @@ export function Header() {
                           key={child.label}
                           href={child.href}
                           className={cn(
-                            "block rounded-md px-3 py-2 text-sm transition-colors hover:bg-muted",
+                            "block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted",
                             pathname === child.href
-                              ? "text-primary"
+                              ? "text-foreground font-medium"
                               : "text-muted-foreground hover:text-foreground",
                           )}
                           role="menuitem"
@@ -88,7 +92,7 @@ export function Header() {
                 className={cn(
                   "rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted",
                   isActive
-                    ? "text-primary"
+                    ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground",
                 )}
               >
@@ -97,6 +101,14 @@ export function Header() {
             );
           })}
         </nav>
+
+        <div className="hidden items-center gap-3 md:flex">
+          <Link href="/contact">
+            <Button size="sm" className="gap-1.5 bg-accent text-accent-foreground hover:bg-accent/90">
+              Get a Quote
+            </Button>
+          </Link>
+        </div>
 
         <button
           type="button"
@@ -110,8 +122,8 @@ export function Header() {
       </div>
 
       {isMobileOpen && (
-        <div className="border-t border-border bg-background md:hidden">
-          <nav className="space-y-1 px-4 py-3" aria-label="Mobile navigation">
+        <div className="border-t border-border/50 bg-background/95 backdrop-blur-md md:hidden">
+          <nav className="space-y-1 px-4 py-4" aria-label="Mobile navigation">
             {NAV_ITEMS.map((item) => {
               const hasChildren = "children" in item;
               if (hasChildren) {
@@ -119,7 +131,7 @@ export function Header() {
                   <div key={item.label}>
                     <button
                       type="button"
-                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
                       onClick={() =>
                         setOpenDropdown(
                           openDropdown === item.label ? null : item.label,
@@ -142,9 +154,9 @@ export function Header() {
                             key={child.label}
                             href={child.href}
                             className={cn(
-                              "block rounded-lg px-3 py-2 text-sm transition-colors hover:bg-muted",
+                              "block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-muted",
                               pathname === child.href
-                                ? "text-primary"
+                                ? "text-foreground font-medium"
                                 : "text-muted-foreground hover:text-foreground",
                             )}
                             onClick={() => setIsMobileOpen(false)}
@@ -163,11 +175,11 @@ export function Header() {
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "block rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted",
+                    "block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-muted",
                     (item.href === "/"
                       ? pathname === "/"
                       : pathname.startsWith(item.href))
-                      ? "text-primary"
+                      ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground",
                   )}
                   onClick={() => setIsMobileOpen(false)}
@@ -176,6 +188,13 @@ export function Header() {
                 </Link>
               );
             })}
+            <div className="pt-2">
+              <Link href="/contact" onClick={() => setIsMobileOpen(false)}>
+                <Button className="w-full gap-2 bg-accent text-accent-foreground hover:bg-accent/90">
+                  Get a Quote
+                </Button>
+              </Link>
+            </div>
           </nav>
         </div>
       )}
