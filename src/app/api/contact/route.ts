@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { sendEmail, sendWhatsApp } from "@/lib/notifications";
 
 const contactSchema = z.object({
   name: z.string().min(1),
@@ -33,15 +34,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const data = contactSchema.parse(body);
 
-    // TODO: [Client] Route form submissions to active business email
-    // Integration pending: send data to SITE_CONFIG.email
-    // Options: use Resend, SendGrid, or SMTP via a Vercel integration
-    console.log("Contact form submission:", {
-      to: "TODO: [Client] Provide business email",
-      from: data.email,
-      subject: `New inquiry from ${data.company} - ${data.service}`,
-      body: `Name: ${data.name}\nCompany: ${data.company}\nEmail: ${data.email}\nPhone: ${data.phone || "N/A"}\nService: ${data.service}\nMessage: ${data.message}`,
-    });
+    await Promise.allSettled([sendEmail(data), sendWhatsApp(data)]);
 
     return NextResponse.json(
       { success: true, message: "Inquiry received" },
