@@ -105,7 +105,7 @@ export function Header() {
         <div className="hidden items-center gap-3 md:flex">
           <Link href="/contact">
             <Button size="sm" className="gap-1.5 bg-accent text-accent-foreground hover:bg-accent/90">
-              Get a Quote
+              Request a Consultation
             </Button>
           </Link>
         </div>
@@ -191,7 +191,7 @@ export function Header() {
             <div className="pt-2">
               <Link href="/contact" onClick={() => setIsMobileOpen(false)}>
                 <Button className="w-full gap-2 bg-accent text-accent-foreground hover:bg-accent/90">
-                  Get a Quote
+                  Request a Consultation
                 </Button>
               </Link>
             </div>
