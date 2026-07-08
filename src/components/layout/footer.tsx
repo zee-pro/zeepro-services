@@ -188,13 +188,13 @@ export function Footer() {
               </li>
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-                <div>
-                  <span className="text-xs font-medium text-primary-foreground/40">
-                    Address
+                <div className="flex w-full justify-between gap-2">
+                  <span className="shrink-0 text-xs font-medium text-primary-foreground/40">
+                    Address:
                   </span>
-                  <p className="text-sm text-primary-foreground/60">
+                  <span className="text-right text-sm text-primary-foreground/60">
                     {SITE_CONFIG.address}
-                  </p>
+                  </span>
                 </div>
               </li>
             </ul>
