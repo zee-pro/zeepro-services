@@ -1,18 +1,9 @@
-import type { Metadata } from "next";
-import { ReviewForm } from "@/components/reviews/review-form";
-import { reviews } from "@/data/reviews";
-import { Star } from "lucide-react";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Reviews",
-  description:
-    "Read reviews from contractors, facility managers, and property partners who trust Zeepro for their construction and maintenance needs in the UAE.",
-  openGraph: {
-    title: "Reviews | Zeepro",
-    description:
-      "Read reviews from contractors, facility managers, and property partners who trust Zeepro for their construction and maintenance needs in the UAE.",
-  },
-};
+import { useEffect, useState } from "react";
+import { ReviewForm } from "@/components/reviews/review-form";
+import { Star } from "lucide-react";
+import type { Review } from "@/data/reviews";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -29,71 +20,98 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function ReviewsPage() {
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  const loadReviews = () => {
+    fetch("/api/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        const list = Array.isArray(data) ? data : [];
+        setReviews(list.sort((a: Review, b: Review) => b.rating - a.rating));
+      })
+      .catch(() => setReviews([]));
+  };
+
+  useEffect(() => {
+    loadReviews();
+  }, []);
+
+  const visible = reviews.slice(0, visibleCount);
+  const hasMore = visibleCount < reviews.length;
+
   return (
     <>
-      {/* Header */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
+      <section className="relative overflow-hidden py-16 sm:py-20">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,var(--color-accent)/3%,transparent_50%)]"
         />
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">
             Testimonials
           </p>
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
             What Our Partners Say
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
             We value feedback from the contractors, facility managers, and
             property partners we work with across the UAE.
           </p>
         </div>
       </section>
 
-      {/* Reviews grid */}
-      <section className="relative overflow-hidden bg-muted/50 pb-24 sm:pb-32">
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 sm:grid-cols-2">
-            {reviews.map((review) => (
-              <div
-                key={review.id}
-                className="flex flex-col rounded-xl border border-border bg-background p-6 sm:p-8"
-              >
-                <StarRating rating={review.rating} />
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-                <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">
-                      {review.name}
-                    </p>
-                    {review.company && (
-                      <p className="text-xs text-muted-foreground">
-                        {review.company}
-                      </p>
-                    )}
-                  </div>
-                  <span className="text-xs text-muted-foreground/60">
-                    {review.date}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Submit review form */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
+      <section className="relative overflow-hidden bg-muted/50 py-24 sm:py-32">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--color-accent)/3%,transparent_50%)]"
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-xl">
-            <ReviewForm />
+          <div className="grid gap-12 lg:grid-cols-3">
+            <div className="lg:col-span-2">
+              <div className="grid gap-6 sm:grid-cols-2">
+                {visible.map((review) => (
+                  <div
+                    key={review.id}
+                    className="flex flex-col rounded-xl border border-border bg-background p-6 sm:p-8"
+                  >
+                    <StarRating rating={review.rating} />
+                    <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      &ldquo;{review.text}&rdquo;
+                    </p>
+                    <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
+                      <div>
+                        <p className="text-sm font-semibold text-foreground">
+                          {review.name}
+                        </p>
+                        {review.company && (
+                          <p className="text-xs text-muted-foreground">
+                            {review.company}
+                          </p>
+                        )}
+                      </div>
+                      <span className="text-xs text-muted-foreground/60">
+                        {review.date}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {hasMore && (
+                <div className="mt-8 text-center sm:hidden">
+                  <button
+                    onClick={() => setVisibleCount((c) => c + 3)}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent/80"
+                  >
+                    Show more
+                  </button>
+                </div>
+              )}
+            </div>
+            <div>
+              <ReviewForm onSuccess={loadReviews} />
+            </div>
           </div>
         </div>
       </section>

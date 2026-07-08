@@ -1,9 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
-import { reviews } from "@/data/reviews";
+import type { Review } from "@/data/reviews";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -20,6 +21,18 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function Testimonials() {
+  const [reviews, setReviews] = useState<Review[]>([]);
+
+  useEffect(() => {
+    fetch("/api/reviews")
+      .then((res) => res.json())
+      .then((data) => {
+        const list = Array.isArray(data) ? data : [];
+        setReviews(list.sort((a: Review, b: Review) => b.rating - a.rating));
+      })
+      .catch(() => setReviews([]));
+  }, []);
+
   const featured = reviews.slice(0, 3);
 
   return (

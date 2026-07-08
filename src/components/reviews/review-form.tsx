@@ -7,7 +7,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
-export function ReviewForm() {
+interface ReviewFormProps {
+  onSuccess?: () => void;
+}
+
+interface FieldErrors {
+  name?: string;
+  rating?: string;
+  text?: string;
+}
+
+export function ReviewForm({ onSuccess }: ReviewFormProps) {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [rating, setRating] = useState(0);
@@ -16,10 +26,32 @@ export function ReviewForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const validate = (): FieldErrors => {
+    const errs: FieldErrors = {};
+    if (!name.trim()) errs.name = "Name is required";
+    if (rating === 0) errs.rating = "Please select a rating";
+    if (!text.trim()) {
+      errs.text = "Review is required";
+    } else if (text.trim().length < 10) {
+      errs.text = "Review must be at least 10 characters";
+    }
+    return errs;
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    setErrors(validate());
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !text.trim() || rating === 0) return;
+    const errs = validate();
+    setErrors(errs);
+    setTouched({ name: true, rating: true, text: true });
+    if (errs.name || errs.rating || errs.text) return;
 
     setIsSubmitting(true);
     setSubmitError(null);
@@ -36,6 +68,7 @@ export function ReviewForm() {
       }
 
       setIsSubmitted(true);
+      onSuccess?.();
       setName("");
       setCompany("");
       setRating(0);
@@ -90,7 +123,11 @@ export function ReviewForm() {
                 <button
                   key={i}
                   type="button"
-                  onClick={() => setRating(i + 1)}
+                  onClick={() => {
+                    setRating(i + 1);
+                    setTouched((prev) => ({ ...prev, rating: true }));
+                    setErrors((prev) => ({ ...prev, rating: undefined }));
+                  }}
                   onMouseEnter={() => setHoveredStar(i + 1)}
                   onMouseLeave={() => setHoveredStar(0)}
                   className="transition-colors hover:scale-110"
@@ -107,6 +144,9 @@ export function ReviewForm() {
                 </button>
               ))}
             </div>
+            {touched.rating && errors.rating && (
+              <p className="text-xs text-destructive">{errors.rating}</p>
+            )}
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
@@ -119,9 +159,13 @@ export function ReviewForm() {
                 placeholder="Your full name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                required
+                onBlur={() => handleBlur("name")}
+                aria-invalid={!!errors.name}
                 className="h-10"
               />
+              {touched.name && errors.name && (
+                <p className="text-xs text-destructive">{errors.name}</p>
+              )}
             </div>
 
             <div className="space-y-2">
@@ -146,8 +190,12 @@ export function ReviewForm() {
               rows={4}
               value={text}
               onChange={(e) => setText(e.target.value)}
-              required
+              onBlur={() => handleBlur("text")}
+              aria-invalid={!!errors.text}
             />
+            {touched.text && errors.text && (
+              <p className="text-xs text-destructive">{errors.text}</p>
+            )}
           </div>
         </div>
 
@@ -159,7 +207,7 @@ export function ReviewForm() {
           type="submit"
           size="lg"
           className="mt-6 gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
-          disabled={isSubmitting || !name.trim() || !text.trim() || rating === 0}
+          disabled={isSubmitting}
         >
           {isSubmitting ? (
             <>
