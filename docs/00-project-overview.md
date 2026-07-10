@@ -12,8 +12,8 @@ The scope of this initial engagement (v1) is limited to creating a highly profes
 ## Assumptions
 - **Assumption 1: B2B First Audience.** We assume the primary audience consists of industry professionals evaluating Zeepro's credibility, rather than consumers looking for quick home repairs.
   - **Justification:** The business model relies on partnerships. Therefore, the tone, imagery, and structural flow of the site must reflect high-end B2B professionalism rather than aggressive direct-to-consumer sales tactics.
-- **Assumption 2: Interim Brand Identity.** We assume the initial design phase must proceed using the interim brand palette (Deep Navy/Slate primary, Muted Gold accent) and a temporary text-based wordmark.
-  - **Justification:** Since no logo, official color palette, or typography currently exists, development cannot wait for a finalized brand book. The interim palette (Deep Navy/Slate, Muted Gold) will be used as a placeholder via CSS design tokens, allowing the final brand to be swapped in without code refactoring.
+- **Assumption 2: Interim Brand Identity.** We assume the initial design phase must proceed using the interim brand palette (Deep Navy/Slate primary, Muted Gold accent) and a PNG logo.
+  - **Justification:** Since no official color palette or typography currently exists, development cannot wait for a finalized brand book. The interim palette (Deep Navy/Slate, Muted Gold) will be used as a placeholder via CSS design tokens, allowing the final brand to be swapped in without code refactoring.
 
 ## Known Facts
 - **Company Name:** Zeepro
@@ -24,18 +24,18 @@ The scope of this initial engagement (v1) is limited to creating a highly profes
 - **Secondary Goals:** Showcase service offerings, display company professionalism, provide clear contact information, and lay the technical groundwork for future expansion (such as project galleries and quote requests).
 - **Licensed Activities (10):** HVAC Installation & Maintenance, Air Filtration Systems, Ventilation Systems, Electromechanical Equipment Installation & Maintenance, Plumbing & Sanitary Contracting, Floor & Wall Tiling Works, Painting Contracting, Carpentry & Wood Flooring Works, Cladding Works, Steel Products Installation & Maintenance.
 - **Service Categories (4):** Mechanical & Electromechanical Services, Plumbing & Sanitary Works, Interior Finishing & Renovation, Steel & Cladding Solutions.
-- **Brand Status:** Logo TBD (interim text wordmark used). Interim palette: Deep Navy/Slate primary, Muted Gold accent. Final brand identity pending client approval. Implementation uses CSS design tokens for seamless future rebranding.
+- **Brand Status:** Logo integrated (PNG format). Interim palette: Deep Navy/Slate primary, Muted Gold accent. Final brand identity pending client approval. Implementation uses CSS design tokens for seamless future rebranding.
 
 ## Unknown Information
 - **Domain Name:** The official web address (e.g., zeepro.ae, zeepro.com) has not been selected or purchased.
 - **Hosting Infrastructure:** No hosting provider has been chosen.
-- **Brand Assets:** No logo, official colors, or typography have been defined.
+- **Brand Assets:** Official colors and typography not yet defined. Logo available in PNG format; SVG conversion pending.
 - **Content:** No finalized company copy, mission statement, or professional photography is available.
 - **Contact Details:** No official business email, phone numbers, or physical office address have been provided.
 
 ## TODOs
 - `TODO: [Client]` Select, approve, and purchase a primary domain name.
-- `TODO: [Client/Brand Agency]` Provide a finalized company logo (SVG format preferred) and basic brand guidelines (primary colors, typography).
+- `TODO: [Client/Brand Agency]` Convert logo to SVG format for better scalability. Provide basic brand guidelines (primary colors, typography).
 - `TODO: [Client]` Provide official business contact information (email, phone, physical address).
 - `TODO: [Client]` Provide a brief company history and mission statement to inform the copywriting process.
 
@@ -53,5 +53,5 @@ The scope of this initial engagement (v1) is limited to creating a highly profes
 ## Revision History
 | Date | Author | Version | Notes |
 |---|---|---|---|
-| 2026-07-06 | Senior Architect / PM | 1.0 | Initial formulation of the project overview based on kickoff constraints. |
+| 2026-07-11 | Developer | 2.1 | Updated brand status to reflect logo integration. |
 | 2026-07-06 | Stakeholder | 2.0 | Updated industry sector to reflect licensed mechanical, plumbing, interior finishing, and steel contracting services. |

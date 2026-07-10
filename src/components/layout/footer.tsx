@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { Mail, Phone, MapPin, MessageCircle, PhoneCall, MessageSquare } from "lucide-react";
 import { SITE_CONFIG, NAV_ITEMS, SOCIAL_LINKS } from "@/lib/constants";
@@ -94,14 +95,13 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2">
-              <span className="flex size-8 items-center justify-center rounded-lg bg-accent text-xs font-bold text-accent-foreground">
-                Z
-              </span>
-              <span className="text-lg font-bold text-primary-foreground">
-                {SITE_CONFIG.name}
-              </span>
-            </div>
+            <Image
+              src="/zeepro-logo-white-bg.png"
+              alt="Zeepro logo"
+              width={600}
+              height={200}
+              className="h-40 w-auto"
+            />
             <p className="mt-3 text-sm leading-relaxed text-primary-foreground/60">
               {SITE_CONFIG.tagline}
             </p>

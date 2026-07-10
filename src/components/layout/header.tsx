@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
+import { NAV_ITEMS } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
 export function Header() {
@@ -16,14 +17,15 @@ export function Header() {
   return (
     <header className="sticky inset-0 z-50 h-16 w-full border-b border-border/50 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-xl font-bold tracking-tight text-foreground"
-        >
-          <span className="flex size-8 items-center justify-center rounded-lg bg-accent text-xs font-bold text-accent-foreground">
-            Z
-          </span>
-          {SITE_CONFIG.name}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/zeepro-logo.png"
+            alt="Zeepro logo"
+            width={240}
+            height={80}
+            className="h-16 w-auto"
+            priority
+          />
         </Link>
 
         <nav

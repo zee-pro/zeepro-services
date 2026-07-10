@@ -13,7 +13,7 @@ This document covers the interim typographic and color guidelines for the v1 web
   - **Justification:** Waiting for a full brand book will delay the project indefinitely. The site will be built using CSS variables (design tokens) so the final brand colors and logo can be swapped in instantly when ready without refactoring code.
 
 ## Known Facts
-- **Current State:** Zeepro currently has no logo, no defined color palette, and no official typography.
+- **Current State:** Zeepro has a logo (PNG format) and defined interim color palette. Final brand assets still pending.
 - **Core Values:** Professionalism, reliability, and B2B partnership.
 
 ## Unknown Information
@@ -21,7 +21,7 @@ This document covers the interim typographic and color guidelines for the v1 web
 - **Brand Story:** The "Why" behind the founding of Zeepro is currently undocumented.
 
 ## TODOs
-- `TODO: [Client/Brand Agency]` Design and provide the official Zeepro logo (SVG format preferred for web).
+- `TODO: [Client/Brand Agency]` Convert logo to SVG format for better scalability and crisp rendering at all sizes.
 - `TODO: [Client/Brand Agency]` Provide the primary and secondary brand color hex codes.
 - `TODO: [Client/Brand Agency]` Provide the official brand typography guidelines (heading and body fonts).
 - `TODO: [Stakeholders]` Provide the core brand story or company history to inform the "About" page copy.
@@ -38,7 +38,7 @@ This document covers the interim typographic and color guidelines for the v1 web
   - **Reasoning:** When the final brand book is delivered and implemented, the UX team must conduct a visual QA pass on the website to ensure the new colors meet WCAG (Web Content Accessibility Guidelines) contrast ratios.
 
 ## Brand Status
-- **Logo:** TBD — a temporary text-based wordmark ("ZEEPRO") in dark slate will be used during development. The logo must be swappable without requiring layout changes.
+- **Logo:** Integrated — `zeepro-logo.png` (header) and `zeepro-logo-white-bg.png` (footer) are in use. SVG format still preferred for scalability.
 - **Brand Colors:** Interim Palette only (Deep Navy/Slate primary, Muted Gold accent). Final hex codes pending.
 - **Final Identity:** Pending client approval from brand agency.
 - **Implementation:** All colors and fonts use CSS design tokens (`@theme` directives) so the final brand identity can be applied without code refactoring.
@@ -59,7 +59,7 @@ The website must communicate the following attributes through all visual choices
 
 ### Interim Visual Identity
 To unblock development, the design and engineering teams will use the following placeholder design system:
-- **Logo:** A clean, bold, sans-serif text wordmark ("ZEEPRO") in dark slate. Positioned in the header navigation; implemented as text to allow effortless future replacement with an SVG logo.
+- **Logo:** PNG logo files (`zeepro-logo.png` for light backgrounds, `zeepro-logo-white-bg.png` for dark backgrounds) integrated in header and footer. SVG format still preferred for future scalability.
 - **Primary Color:** Deep Navy/Slate (Projects trust, stability, and corporate professionalism).
 - **Accent Color:** Muted Gold (Subtle accent conveying quality and technical precision, without being visually overwhelming).
 - **Typography:**
@@ -83,4 +83,5 @@ To unblock development, the design and engineering teams will use the following 
 ## Revision History
 | Date | Author | Version | Notes |
 |---|---|---|---|
+| 2026-07-11 | Developer | 1.1 | Integrated logo PNGs in header/footer, added OG image metadata. |
 | 2026-07-06 | Branding Consultant | 1.0 | Interim strategy created to unblock design/engineering while awaiting final assets. |

@@ -32,6 +32,14 @@ export const metadata: Metadata = {
     siteName: "Zeepro",
     locale: "en_AE",
     type: "website",
+    images: [
+      {
+        url: "/zeepro-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Zeepro | Licensed Mechanical, Plumbing, Finishing & Steel Services UAE",
+      },
+    ],
   },
   robots: {
     index: true,
