@@ -36,11 +36,11 @@ export function Hero() {
       {/* Dark gradient overlays for readability */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[oklch(0.12_0.028_261.7/0.92)] via-[oklch(0.12_0.028_261.7/0.85)] to-[oklch(0.12_0.028_261.7/0.6)]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[oklch(0.1962_0.002_286.2/0.92)] via-[oklch(0.1962_0.002_286.2/0.85)] to-[oklch(0.1962_0.002_286.2/0.6)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0.028_261.7/0.8)] via-transparent to-[oklch(0.12_0.028_261.7/0.3)]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[oklch(0.1962_0.002_286.2/0.8)] via-transparent to-[oklch(0.1962_0.002_286.2/0.3)]"
       />
 
       {/* Industrial grid pattern overlay */}

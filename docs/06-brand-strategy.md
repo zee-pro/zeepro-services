@@ -22,7 +22,6 @@ This document covers the interim typographic and color guidelines for the v1 web
 
 ## TODOs
 - `TODO: [Client/Brand Agency]` Convert logo to SVG format for better scalability and crisp rendering at all sizes.
-- `TODO: [Client/Brand Agency]` Provide the primary and secondary brand color hex codes.
 - `TODO: [Client/Brand Agency]` Provide the official brand typography guidelines (heading and body fonts).
 - `TODO: [Stakeholders]` Provide the core brand story or company history to inform the "About" page copy.
 
@@ -39,7 +38,7 @@ This document covers the interim typographic and color guidelines for the v1 web
 
 ## Brand Status
 - **Logo:** Integrated — `zeepro-logo.png` (header) and `zeepro-logo-white-bg.png` (footer) are in use. SVG format still preferred for scalability.
-- **Brand Colors:** Interim Palette only (Deep Navy/Slate primary, Muted Gold accent). Final hex codes pending.
+- **Brand Colors:** Green (#a9c812) and Black (#151516). Final brand agency approval pending.
 - **Final Identity:** Pending client approval from brand agency.
 - **Implementation:** All colors and fonts use CSS design tokens (`@theme` directives) so the final brand identity can be applied without code refactoring.
 
@@ -60,8 +59,8 @@ The website must communicate the following attributes through all visual choices
 ### Interim Visual Identity
 To unblock development, the design and engineering teams will use the following placeholder design system:
 - **Logo:** PNG logo files (`zeepro-logo.png` for light backgrounds, `zeepro-logo-white-bg.png` for dark backgrounds) integrated in header and footer. SVG format still preferred for future scalability.
-- **Primary Color:** Deep Navy/Slate (Projects trust, stability, and corporate professionalism).
-- **Accent Color:** Muted Gold (Subtle accent conveying quality and technical precision, without being visually overwhelming).
+- **Primary Color:** Black (#151516) — Projects trust, stability, and corporate professionalism. Used for footer background, dark sections, and primary buttons.
+- **Accent Color:** Green (#a9c812) — Vibrant accent conveying growth, energy, and technical precision. Used for highlights, icons, and CTA buttons.
 - **Typography:**
   - **Headings:** Geist (via `next/font/google`, set as CSS variable `--font-geist-sans`).
   - **Body:** Geist (Same font family for visual consistency).
@@ -83,5 +82,6 @@ To unblock development, the design and engineering teams will use the following 
 ## Revision History
 | Date | Author | Version | Notes |
 |---|---|---|---|
+| 2026-07-11 | Developer | 1.2 | Updated brand colors to Green (#a9c812) + Black (#151516) theme. |
 | 2026-07-11 | Developer | 1.1 | Integrated logo PNGs in header/footer, added OG image metadata. |
 | 2026-07-06 | Branding Consultant | 1.0 | Interim strategy created to unblock design/engineering while awaiting final assets. |

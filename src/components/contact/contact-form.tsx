@@ -14,7 +14,7 @@ const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
   company: z.string().min(1, "Company name is required"),
   email: z.string().email("Invalid email address"),
-  phone: z.string().optional(),
+  phone: z.string().min(1, "Phone number is required"),
   service: z.string().min(1, "Please select a service"),
   message: z.string().min(10, "Message must be at least 10 characters"),
   honeypot: z.string().max(0, "Bot detected"),
@@ -176,14 +176,20 @@ export function ContactForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone</Label>
+            <Label htmlFor="phone">
+              Phone <span className="text-destructive">*</span>
+            </Label>
             <Input
               id="phone"
               type="tel"
               placeholder="+971 XX XXX XXXX"
               {...register("phone")}
+              aria-invalid={!!errors.phone}
               className="h-10"
             />
+            {errors.phone && (
+              <p className="text-xs text-destructive">{errors.phone.message}</p>
+            )}
           </div>
 
           <div className="space-y-2 sm:col-span-2">

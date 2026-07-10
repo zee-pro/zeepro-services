@@ -33,11 +33,11 @@ export function ServiceDetail({
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[oklch(0.12_0.028_261.7/0.92)] via-[oklch(0.12_0.028_261.7/0.7)] to-[oklch(0.12_0.028_261.7/0.4)]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[oklch(0.1962_0.002_286.2/0.92)] via-[oklch(0.1962_0.002_286.2/0.7)] to-[oklch(0.1962_0.002_286.2/0.4)]"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0.028_261.7/0.6)] via-transparent to-transparent"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[oklch(0.1962_0.002_286.2/0.6)] via-transparent to-transparent"
         />
         <div
           aria-hidden="true"
