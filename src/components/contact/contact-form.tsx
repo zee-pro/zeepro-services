@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -9,30 +9,41 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { COUNTRY_CODES } from "@/lib/country-codes";
+import { CountryCodeSelect } from "./country-code-select";
 
-const contactSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  company: z.string().min(1, "Company name is required"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(1, "Phone number is required"),
-  service: z.string().min(1, "Please select a service"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-  honeypot: z.string().max(0, "Bot detected"),
-});
+const contactSchema = z
+  .object({
+    name: z.string().min(1, "Name is required"),
+    company: z.string().min(1, "Company name is required"),
+    email: z.string().email("Invalid email address"),
+    phoneCountryCode: z.string().min(1, "Country code is required"),
+    phoneNumber: z.string().min(1, "Phone number is required"),
+    whatsappType: z.enum(["number", "id"]),
+    whatsappSameAsPhone: z.boolean(),
+    whatsappCountryCode: z.string(),
+    whatsappNumber: z.string(),
+    whatsappId: z.string(),
+    service: z.string().min(1, "Please select a service"),
+    message: z.string().min(10, "Message must be at least 10 characters"),
+    honeypot: z.string().max(0, "Bot detected"),
+  })
+  .refine(
+    (data) => {
+      if (data.whatsappSameAsPhone) return true;
+      if (data.whatsappType === "number") return data.whatsappNumber.length > 0;
+      return data.whatsappId.length > 0;
+    },
+    { message: "WhatsApp number or ID is required", path: ["whatsappNumber"] },
+  );
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const SERVICE_OPTIONS = [
   { value: "", label: "Select a service..." },
-  {
-    value: "mechanical-electromechanical",
-    label: "Mechanical & Electromechanical",
-  },
+  { value: "mechanical-electromechanical", label: "Mechanical & Electromechanical" },
   { value: "plumbing-sanitary", label: "Plumbing & Sanitary Works" },
-  {
-    value: "interior-finishing",
-    label: "Interior Finishing & Renovation",
-  },
+  { value: "interior-finishing", label: "Interior Finishing & Renovation" },
   { value: "steel-cladding", label: "Steel & Cladding Solutions" },
   { value: "general", label: "General Inquiry" },
 ];
@@ -44,6 +55,8 @@ export function ContactForm() {
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactFormData>({
@@ -52,20 +65,49 @@ export function ContactForm() {
       name: "",
       company: "",
       email: "",
-      phone: "",
+      phoneCountryCode: "AE",
+      phoneNumber: "",
+      whatsappType: "number",
+      whatsappSameAsPhone: false,
+      whatsappCountryCode: "AE",
+      whatsappNumber: "",
+      whatsappId: "",
       service: "",
       message: "",
       honeypot: "",
     },
   });
 
+  const whatsappSameAsPhone = watch("whatsappSameAsPhone");
+  const whatsappType = watch("whatsappType");
+  const phoneCountryCode = watch("phoneCountryCode");
+  const phoneNumber = watch("phoneNumber");
+
   const onSubmit = async (data: ContactFormData) => {
     try {
       setSubmitError(null);
+      const phoneCountry = COUNTRY_CODES.find((c) => c.code === data.phoneCountryCode);
+      const whatsappCountry = COUNTRY_CODES.find((c) => c.code === data.whatsappCountryCode);
+
+      let whatsapp: string;
+      if (data.whatsappSameAsPhone) {
+        whatsapp = `${phoneCountry?.dial ?? ""}${data.phoneNumber}`;
+      } else if (data.whatsappType === "number") {
+        whatsapp = `${whatsappCountry?.dial ?? ""}${data.whatsappNumber}`;
+      } else {
+        whatsapp = data.whatsappId;
+      }
+
+      const payload = {
+        ...data,
+        phone: `${phoneCountry?.dial ?? ""}${data.phoneNumber}`,
+        whatsapp,
+      };
+
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
@@ -78,6 +120,18 @@ export function ContactForm() {
       setSubmitError("Something went wrong. Please try again or contact us directly.");
     }
   };
+
+  const handleSameAsPhone = useCallback(
+    (checked: boolean) => {
+      setValue("whatsappSameAsPhone", checked);
+      if (checked) {
+        setValue("whatsappCountryCode", phoneCountryCode);
+        setValue("whatsappNumber", phoneNumber);
+        setValue("whatsappId", "");
+      }
+    },
+    [setValue, phoneCountryCode, phoneNumber],
+  );
 
   if (isSubmitted) {
     return (
@@ -152,9 +206,7 @@ export function ContactForm() {
               className="h-10"
             />
             {errors.company && (
-              <p className="text-xs text-destructive">
-                {errors.company.message}
-              </p>
+              <p className="text-xs text-destructive">{errors.company.message}</p>
             )}
           </div>
 
@@ -179,16 +231,111 @@ export function ContactForm() {
             <Label htmlFor="phone">
               Phone <span className="text-destructive">*</span>
             </Label>
-            <Input
-              id="phone"
-              type="tel"
-              placeholder="+971 XX XXX XXXX"
-              {...register("phone")}
-              aria-invalid={!!errors.phone}
-              className="h-10"
-            />
-            {errors.phone && (
-              <p className="text-xs text-destructive">{errors.phone.message}</p>
+            <div className="flex gap-2">
+              <CountryCodeSelect
+                id="phoneCountryCode"
+                value={watch("phoneCountryCode")}
+                onChange={(v) => setValue("phoneCountryCode", v, { shouldValidate: true })}
+                aria-invalid={!!errors.phoneCountryCode}
+              />
+              <Input
+                id="phoneNumber"
+                type="tel"
+                placeholder="XX XXX XXXX"
+                className="h-10 flex-1"
+                {...register("phoneNumber")}
+                aria-invalid={!!errors.phoneNumber}
+              />
+            </div>
+            {(errors.phoneCountryCode || errors.phoneNumber) && (
+              <p className="text-xs text-destructive">
+                {errors.phoneCountryCode?.message || errors.phoneNumber?.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-3 sm:col-span-2">
+            <Label>
+              WhatsApp <span className="text-destructive">*</span>
+            </Label>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => { setValue("whatsappType", "number"); setValue("whatsappSameAsPhone", false); }}
+                className={`rounded-lg border px-3 py-2 text-sm transition-colors ${
+                  whatsappType === "number"
+                    ? "border-accent bg-accent/10 text-accent"
+                    : "border-input text-muted-foreground"
+                }`}
+              >
+                Number
+              </button>
+              <button
+                type="button"
+                onClick={() => { setValue("whatsappType", "id"); setValue("whatsappSameAsPhone", false); }}
+                className={`rounded-lg border px-3 py-2 text-sm transition-colors ${
+                  whatsappType === "id"
+                    ? "border-accent bg-accent/10 text-accent"
+                    : "border-input text-muted-foreground"
+                }`}
+              >
+                ID
+              </button>
+            </div>
+
+            {whatsappType === "number" && (
+              <div className="flex items-center gap-2">
+                <input
+                  id="whatsappSameAsPhone"
+                  type="checkbox"
+                  className="size-4 rounded border-input text-accent accent-accent"
+                  {...register("whatsappSameAsPhone")}
+                  onChange={(e) => handleSameAsPhone(e.target.checked)}
+                />
+                <Label htmlFor="whatsappSameAsPhone" className="text-sm font-medium cursor-pointer">
+                  Same as Phone
+                </Label>
+              </div>
+            )}
+
+            {whatsappSameAsPhone ? (
+              <div className="flex h-10 items-center gap-2 rounded-lg border border-input bg-muted/50 px-3 text-sm text-muted-foreground">
+                {COUNTRY_CODES.find((c) => c.code === phoneCountryCode)?.dial}{phoneNumber || " XX XXX XXXX"}
+              </div>
+            ) : (
+              <>
+                <div className="flex gap-2">
+                  {whatsappType === "number" ? (
+                    <>
+                      <CountryCodeSelect
+                        id="whatsappCountryCode"
+                        value={watch("whatsappCountryCode")}
+                        onChange={(v) => setValue("whatsappCountryCode", v, { shouldValidate: true })}
+                        aria-invalid={!!errors.whatsappCountryCode}
+                      />
+                      <Input
+                        id="whatsappNumber"
+                        type="tel"
+                        placeholder="XX XXX XXXX"
+                        className="h-10 flex-1"
+                        {...register("whatsappNumber")}
+                        aria-invalid={!!errors.whatsappNumber}
+                      />
+                    </>
+                  ) : (
+                    <Input
+                      id="whatsappId"
+                      placeholder="e.g. @username"
+                      className="h-10 flex-1"
+                      {...register("whatsappId")}
+                      aria-invalid={!!errors.whatsappNumber}
+                    />
+                  )}
+                </div>
+                {errors.whatsappNumber && (
+                  <p className="text-xs text-destructive">{errors.whatsappNumber.message}</p>
+                )}
+              </>
             )}
           </div>
 
@@ -209,9 +356,7 @@ export function ContactForm() {
               ))}
             </select>
             {errors.service && (
-              <p className="text-xs text-destructive">
-                {errors.service.message}
-              </p>
+              <p className="text-xs text-destructive">{errors.service.message}</p>
             )}
           </div>
 
@@ -227,9 +372,7 @@ export function ContactForm() {
               aria-invalid={!!errors.message}
             />
             {errors.message && (
-              <p className="text-xs text-destructive">
-                {errors.message.message}
-              </p>
+              <p className="text-xs text-destructive">{errors.message.message}</p>
             )}
           </div>
         </div>
