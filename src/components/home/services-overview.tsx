@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Fan, Droplets, PaintRoller, Building2, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { IMAGES } from "@/lib/images";
+import { ServiceImageCarousel } from "./service-image-carousel";
 
 const services = [
   {
@@ -211,6 +212,8 @@ export function ServicesOverview() {
             </motion.div>
           ))}
         </motion.div>
+
+        <ServiceImageCarousel />
       </div>
     </section>
   );
