@@ -5,7 +5,8 @@ interface FormData {
   name: string;
   company: string;
   email: string;
-  phone?: string;
+  phone: string;
+  whatsapp: string;
   service: string;
   message: string;
 }
@@ -26,7 +27,8 @@ function buildEmailBody(data: FormData): string {
     `Name: ${data.name}`,
     `Company: ${data.company}`,
     `Email: ${data.email}`,
-    `Phone: ${data.phone || "N/A"}`,
+    `Phone: ${data.phone}`,
+    `WhatsApp: ${data.whatsapp}`,
     `Service: ${formatServiceLabel(data.service)}`,
     "",
     `Message:`,
@@ -41,7 +43,8 @@ function buildWhatsAppMessage(data: FormData): string {
     `*Name:* ${data.name}`,
     `*Company:* ${data.company}`,
     `*Email:* ${data.email}`,
-    `*Phone:* ${data.phone || "N/A"}`,
+    `*Phone:* ${data.phone}`,
+    `*WhatsApp:* ${data.whatsapp}`,
     `*Service:* ${formatServiceLabel(data.service)}`,
     ``,
     `*Message:*`,
