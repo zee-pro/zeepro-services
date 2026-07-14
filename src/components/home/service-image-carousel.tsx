@@ -1,41 +1,70 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import Image from "next/image";
-import { useMemo } from "react";
 
-const GALLERY_IMAGES = [
-  { src: "/images/services/mechanical2.jpg", alt: "Mechanical & Electromechanical" },
-  { src: "/images/services/plumbing.jpg", alt: "Plumbing & Sanitary Works" },
-  { src: "/images/services/interior.jpg", alt: "Interior Finishing & Renovation" },
-  { src: "/images/services/steel.jpg", alt: "Steel & Cladding Solutions" },
+const images = [
+  { src: "/images/services/mechanical2.jpg", alt: "Mechanical" },
+  { src: "/images/services/plumbing.jpg", alt: "Plumbing" },
+  { src: "/images/services/interior.jpg", alt: "Interior" },
+  { src: "/images/services/steel.jpg", alt: "Steel" },
   { src: "/images/services/mechanical.jpg", alt: "Mechanical" },
-  { src: "/images/services/plumbing1.jpg", alt: "Plumbing" },
-  { src: "/images/services/interior1.jpg", alt: "Interior" },
-  { src: "/images/services/plumbing2.jpg", alt: "Plumbing Works" },
-  { src: "/images/services/interior2.jpg", alt: "Interior Finishing" },
-  { src: "/images/services/plumbing3.jpg", alt: "Sanitary" },
-  { src: "/images/services/interior3.jpg", alt: "Renovation" },
+  { src: "/images/services/plumbing1.jpg", alt: "Plumbing 1" },
+  { src: "/images/services/interior1.jpg", alt: "Interior 1" },
+  { src: "/images/services/plumbing2.jpg", alt: "Plumbing 2" },
+  { src: "/images/services/interior2.jpg", alt: "Interior 2" },
+  { src: "/images/services/plumbing3.jpg", alt: "Plumbing 3" },
+  { src: "/images/services/interior3.jpg", alt: "Interior 3" },
   { src: "/images/services/mechanical1.jpg", alt: "Electromechanical" },
 ];
 
 export function ServiceImageCarousel() {
-  const doubled = useMemo(() => [...GALLERY_IMAGES, ...GALLERY_IMAGES], []);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let start = performance.now();
+    const speed = 60;
+
+    function animate(now: number) {
+      const elapsed = now - start;
+      const px = (elapsed * speed) / 1000;
+      const el = track!;
+      const maxPx = el.scrollWidth / 2;
+      el.style.transform = `translateX(${-(px % maxPx)}px)`;
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  }, []);
+
+  const all = [...images, ...images];
 
   return (
-    <div className="relative mx-auto mt-16 max-w-7xl overflow-hidden px-4 sm:px-6 lg:px-8">
-      <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
-        <div className="flex shrink-0 animate-scroll gap-4">
-          {doubled.map((img, i) => (
+    <div className="mx-auto mt-16 max-w-full overflow-hidden px-0 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background" />
+
+        <div
+          ref={trackRef}
+          className="flex gap-4"
+          style={{ width: "fit-content", minWidth: "100%" }}
+        >
+          {all.map((img, i) => (
             <div
               key={i}
-              className="relative h-48 w-72 shrink-0 overflow-hidden rounded-xl sm:h-56 sm:w-80"
+              className="relative h-48 w-72 shrink-0 rounded-xl sm:h-56 sm:w-80"
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                sizes="(max-width: 640px) 288px, 320px"
-                className="object-cover"
+                sizes="320px"
+                className="rounded-xl object-cover"
+                priority={i < 12}
+                unoptimized
               />
             </div>
           ))}

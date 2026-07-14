@@ -134,16 +134,3 @@
     background-color: oklch(from var(--accent) l c h / 0.25);
   }
 }
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@utility animate-scroll {
-  animation: scroll 40s linear infinite;
-}
