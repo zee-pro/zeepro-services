@@ -16,10 +16,10 @@ export function JsonLd() {
       addressCountry: "AE",
     },
     knowsAbout: [
+      "Interior Renovation & Construction",
+      "Joinery & Custom Woodwork",
       "Mechanical & Electromechanical Services",
       "Plumbing & Sanitary Works",
-      "Interior Finishing & Renovation",
-      "Steel & Cladding Solutions",
     ],
     areaServed: {
       "@type": "Country",

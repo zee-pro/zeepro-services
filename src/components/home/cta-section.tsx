@@ -28,8 +28,9 @@ export function CTASection() {
             Ready to Discuss Your Next Project?
           </h2>
           <p className="mt-4 text-lg text-accent-foreground/80">
-            Whether you need mechanical, plumbing, finishing, or steel services,
-            our licensed team is ready to support your project requirements.
+            Whether you need interior renovation, construction, joinery,
+            mechanical, or plumbing services, our licensed team is ready to
+            support your project requirements.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link

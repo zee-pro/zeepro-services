@@ -29,7 +29,7 @@ const highlights = [
     icon: Gauge,
     title: "Technical Expertise",
     description:
-      "Skilled engineers and tradespeople with hands-on experience across mechanical, plumbing, finishing, and steel disciplines.",
+      "Skilled engineers and tradespeople with hands-on experience across interior renovation, construction, joinery, mechanical, and plumbing disciplines.",
   },
   {
     icon: Users,
@@ -127,61 +127,61 @@ export function AboutPreview() {
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     01
                   </span>
-                  HVAC Installation & Maintenance
+                  Interior Renovation & Construction
                 </li>
                 <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     02
                   </span>
-                  Air Filtration Systems
+                  Joinery & Custom Woodwork
                 </li>
                 <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     03
                   </span>
-                  Ventilation Systems
+                  HVAC Installation & Maintenance
                 </li>
                 <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     04
                   </span>
-                  Electromechanical Equipment
+                  Air Filtration Systems
                 </li>
                 <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     05
                   </span>
-                  Plumbing & Sanitary Contracting
+                  Ventilation Systems
                 </li>
                 <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     06
                   </span>
-                  Floor & Wall Tiling Works
+                  Electromechanical Equipment
                 </li>
                 <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     07
                   </span>
-                  Painting Contracting
+                  Cladding Works
                 </li>
                 <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     08
                   </span>
-                  Carpentry & Wood Flooring
+                  Plumbing & Sanitary Contracting
                 </li>
                 <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     09
                   </span>
-                  Cladding Works
+                  Floor & Wall Tiling Works
                 </li>
                 <li className="flex items-center gap-3 text-sm font-medium text-foreground">
                   <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
                     10
                   </span>
-                  Steel Products Installation & Maintenance
+                  Painting Contracting
                 </li>
               </ul>
             </div>

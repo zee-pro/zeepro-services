@@ -4,18 +4,18 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 
 const images = [
+  { src: "/images/services/interior.jpg", alt: "Interior Renovation" },
+  { src: "/images/services/joinery.jpg", alt: "Joinery" },
   { src: "/images/services/mechanical2.jpg", alt: "Mechanical" },
   { src: "/images/services/plumbing.jpg", alt: "Plumbing" },
-  { src: "/images/services/interior.jpg", alt: "Interior" },
-  { src: "/images/services/steel.jpg", alt: "Steel" },
+  { src: "/images/services/interior1.jpg", alt: "Interior" },
+  { src: "/images/services/joinery1.jpg", alt: "Joinery" },
   { src: "/images/services/mechanical.jpg", alt: "Mechanical" },
-  { src: "/images/services/plumbing1.jpg", alt: "Plumbing 1" },
-  { src: "/images/services/interior1.jpg", alt: "Interior 1" },
-  { src: "/images/services/plumbing2.jpg", alt: "Plumbing 2" },
-  { src: "/images/services/interior2.jpg", alt: "Interior 2" },
-  { src: "/images/services/plumbing3.jpg", alt: "Plumbing 3" },
-  { src: "/images/services/interior3.jpg", alt: "Interior 3" },
-  { src: "/images/services/mechanical1.jpg", alt: "Electromechanical" },
+  { src: "/images/services/plumbing1.jpg", alt: "Plumbing" },
+  { src: "/images/services/interior2.jpg", alt: "Interior" },
+  { src: "/images/services/joinery2.jpg", alt: "Joinery" },
+  { src: "/images/services/interior3.jpg", alt: "Interior" },
+  { src: "/images/services/joinery3.jpg", alt: "Joinery" },
 ];
 
 export function ServiceImageCarousel() {
@@ -42,7 +42,7 @@ export function ServiceImageCarousel() {
   const all = [...images, ...images];
 
   return (
-    <div className="mt-8 w-full overflow-hidden">
+    <div className="mt-16 w-full overflow-hidden">
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background" />

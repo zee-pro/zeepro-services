@@ -2,22 +2,22 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, ShieldCheck, Wrench, Building2 } from "lucide-react";
+import { ChevronRight, ShieldCheck, Wrench, HardHat } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { IMAGES } from "@/lib/images";
 
 const serviceHighlights = [
+  { label: "Interior Renovation & Construction", href: "/services/interior-finishing" },
+  { label: "Joinery & Custom Woodwork", href: "/services/joinery" },
   { label: "Mechanical & Electromechanical", href: "/services/mechanical-electromechanical" },
   { label: "Plumbing & Sanitary Works", href: "/services/plumbing-sanitary" },
-  { label: "Interior Finishing & Renovation", href: "/services/interior-finishing" },
-  { label: "Steel & Cladding Solutions", href: "/services/steel-cladding" },
 ];
 
 const trustIndicators = [
   { icon: ShieldCheck, text: "Licensed Contractor" },
   { icon: Wrench, text: "10 Specialised Trades" },
-  { icon: Building2, text: "UAE Operations" },
+  { icon: HardHat, text: "UAE Operations" },
 ];
 
 export function Hero() {
@@ -83,9 +83,10 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/70">
-              Zeepro delivers licensed mechanical, plumbing, interior finishing,
-              and steel services to contractors, facility managers, and property
-              partners across the United Arab Emirates.
+              Zeepro delivers licensed interior renovation, construction,
+              joinery, mechanical, and plumbing services to contractors,
+              facility managers, and property partners across the United Arab
+              Emirates.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">

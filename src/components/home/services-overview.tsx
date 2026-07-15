@@ -1,18 +1,56 @@
 "use client";
 
 import Link from "next/link";
-import { Fan, Droplets, PaintRoller, Building2, ArrowRight } from "lucide-react";
+import { PaintRoller, Hammer, Fan, Droplets, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { ServiceImageCarousel } from "./service-image-carousel";
 
 const services = [
   {
+    id: "interior",
+    title: "Interior Renovation & Construction",
+    description:
+      "Full-scale apartment, villa, and commercial renovation and construction services delivered by licensed professionals.",
+    longDescription:
+      "Comprehensive interior renovation and construction solutions for apartments, villas, and commercial spaces. Our licensed team handles everything from structural改造 and fit-outs to precision finishing, delivering high-quality transformations on schedule.",
+    icon: PaintRoller,
+    href: "/services/interior-finishing",
+    accent: "from-yellow-800/50 to-yellow-950/70",
+    border: "border-amber-800/30",
+    label: "Renovation & Construction",
+    capabilities: [
+      "Apartment & villa renovations",
+      "Commercial fit-out & construction",
+      "Floor & wall tiling",
+      "Painting & surface finishing",
+    ],
+  },
+  {
+    id: "joinery",
+    title: "Joinery & Custom Woodwork",
+    description:
+      "Bespoke cabinetry, kitchen joinery, wardrobe fabrication, decorative millwork, and office fit-out solutions.",
+    longDescription:
+      "Specialist joinery and custom woodwork crafted by skilled woodworkers. From bespoke cabinetry and kitchen installations to decorative millwork and commercial fit-outs, we deliver precision-crafted pieces for residential and hospitality projects.",
+    icon: Hammer,
+    href: "/services/joinery",
+    accent: "from-orange-900/60 to-orange-950/80",
+    border: "border-orange-800/30",
+    label: "Custom Woodwork",
+    capabilities: [
+      "Custom cabinetry & built-in furniture",
+      "Kitchen joinery & countertops",
+      "Wardrobe & storage fabrication",
+      "Decorative woodwork & millwork",
+    ],
+  },
+  {
     id: "mechanical",
     title: "Mechanical & Electromechanical",
     description:
-      "Home AC, HVAC installation, air filtration, ventilation, and electromechanical equipment services.",
+      "Home AC, HVAC, air filtration, ventilation, cladding, and electromechanical equipment services.",
     longDescription:
-      "Comprehensive mechanical and electromechanical solutions for residential, commercial, and industrial facilities. Our licensed technicians handle home AC installation and repair (window, split, cassette, and central units), HVAC systems, air filtration, ventilation, and electromechanical equipment.",
+      "Comprehensive mechanical and electromechanical solutions for residential, commercial, and industrial facilities. Our licensed technicians handle home AC installation and repair, HVAC systems, air filtration, ventilation, cladding systems, and electromechanical equipment.",
     icon: Fan,
     href: "/services/mechanical-electromechanical",
     accent: "from-blue-900/60 to-blue-950/80",
@@ -21,8 +59,8 @@ const services = [
     capabilities: [
       "Home AC — window, split, cassette & central",
       "HVAC installation & maintenance",
-      "Air filtration systems",
-      "Electromechanical servicing",
+      "Air filtration & ventilation systems",
+      "Cladding system installation",
     ],
   },
   {
@@ -42,44 +80,6 @@ const services = [
       "Sanitary fixture contracting",
       "Drainage & wastewater systems",
       "Emergency leak detection",
-    ],
-  },
-  {
-    id: "interior",
-    title: "Interior Finishing & Renovation",
-    description:
-      "Professional tiling, painting, carpentry, and wood flooring for commercial and residential spaces.",
-    longDescription:
-      "High-quality interior finishing and renovation services delivered by skilled tradespeople. We handle tiling, painting, carpentry, and wood flooring to deliver premium finishes on schedule.",
-    icon: PaintRoller,
-    href: "/services/interior-finishing",
-    accent: "from-amber-900/60 to-amber-950/80",
-    border: "border-amber-800/30",
-    label: "Fit-Out & Finishes",
-    capabilities: [
-      "Floor & wall tiling",
-      "Painting & surface finishing",
-      "Carpentry & joinery",
-      "Wood flooring installation",
-    ],
-  },
-  {
-    id: "steel",
-    title: "Steel & Cladding Solutions",
-    description:
-      "Cladding system installation, steel fabrication, structural maintenance, and corrosion protection.",
-    longDescription:
-      "Specialist cladding and steel solutions for major commercial and industrial projects. From facade cladding to steel structure fabrication, delivering durable code-compliant results.",
-    icon: Building2,
-    href: "/services/steel-cladding",
-    accent: "from-slate-900/60 to-slate-950/80",
-    border: "border-slate-800/30",
-    label: "Structural Systems",
-    capabilities: [
-      "Cladding system installation",
-      "Steel fabrication & installation",
-      "Structural steel maintenance",
-      "Corrosion protection & coating",
     ],
   },
 ];
@@ -122,13 +122,14 @@ export function ServicesOverview() {
             Our Services
           </p>
           <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Licensed Technical Services Across{" "}
-            <span className="text-accent">Four Core Disciplines</span>
+            Licensed{" "}
+            <span className="text-accent">Interior Renovation, Construction</span>{" "}
+            & Technical Services
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Every activity is fully licensed and executed by qualified
-            professionals. We deliver to commercial, industrial, and residential
-            projects throughout the UAE.
+            professionals. We deliver renovation, construction, joinery, and
+            technical services to projects throughout the UAE.
           </p>
         </motion.div>
 
@@ -198,6 +199,7 @@ export function ServicesOverview() {
           ))}
         </motion.div>
       </div>
+      <br />
 
       <ServiceImageCarousel />
     </section>

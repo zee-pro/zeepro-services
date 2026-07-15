@@ -1,30 +1,56 @@
 import type { Metadata } from "next";
-import { Fan, Droplets, PaintRoller, Building2 } from "lucide-react";
+import { PaintRoller, Hammer, Fan, Droplets } from "lucide-react";
 import { ServiceCard } from "@/components/services/service-card";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Zeepro's licensed mechanical, plumbing, interior finishing, and steel services across the UAE.",
+    "Explore Zeepro's licensed interior renovation, joinery, mechanical, and plumbing services across the UAE.",
   openGraph: {
     title: "Services | Zeepro",
     description:
-      "Explore Zeepro's licensed mechanical, plumbing, interior finishing, and steel services across the UAE.",
+      "Explore Zeepro's licensed interior renovation, joinery, mechanical, and plumbing services across the UAE.",
   },
 };
 
 const services = [
   {
+    title: "Interior Renovation & Construction",
+    description:
+      "Full-scale apartment, villa, and commercial renovation and construction services — from structural改造 to precision finishing, delivered by licensed professionals.",
+    icon: PaintRoller,
+    href: "/services/interior-finishing",
+    capabilities: [
+      "Apartment and villa renovations",
+      "Commercial fit-out and construction",
+      "Floor and wall tiling works",
+      "Painting and surface finishing",
+    ],
+  },
+  {
+    title: "Joinery & Custom Woodwork",
+    description:
+      "Bespoke cabinetry, kitchen joinery, wardrobe fabrication, decorative millwork, and office fit-out solutions crafted by skilled woodworkers.",
+    icon: Hammer,
+    href: "/services/joinery",
+    capabilities: [
+      "Custom cabinetry and built-in furniture",
+      "Kitchen joinery and countertop installation",
+      "Wardrobe and storage system fabrication",
+      "Decorative woodwork and millwork",
+    ],
+  },
+  {
     title: "Mechanical & Electromechanical",
     description:
-      "Comprehensive home AC, HVAC, air filtration, ventilation, and electromechanical services for residential, commercial, and industrial clients across the UAE.",
+      "Comprehensive home AC, HVAC, air filtration, ventilation, cladding, and electromechanical services for residential, commercial, and industrial clients across the UAE.",
     icon: Fan,
     href: "/services/mechanical-electromechanical",
     capabilities: [
       "Home AC — window, split, cassette & central units",
       "HVAC installation and maintenance",
-      "Air filtration systems",
-      "Electromechanical equipment servicing",
+      "Air filtration and ventilation systems",
+      "Cladding system installation",
     ],
   },
   {
@@ -38,32 +64,6 @@ const services = [
       "Sanitary fixture contracting",
       "Drainage and wastewater systems",
       "Emergency leak detection and repair",
-    ],
-  },
-  {
-    title: "Interior Finishing & Renovation",
-    description:
-      "Professional tiling, painting, carpentry, and wood flooring services for commercial and residential spaces.",
-    icon: PaintRoller,
-    href: "/services/interior-finishing",
-    capabilities: [
-      "Floor and wall tiling works",
-      "Painting and surface finishing",
-      "Carpentry and joinery",
-      "Wood flooring installation",
-    ],
-  },
-  {
-    title: "Steel & Cladding Solutions",
-    description:
-      "Cladding system installation, steel product fabrication, and structural steel maintenance for industrial projects.",
-    icon: Building2,
-    href: "/services/steel-cladding",
-    capabilities: [
-      "Cladding system design and installation",
-      "Steel fabrication and installation",
-      "Structural steel maintenance",
-      "Corrosion protection and coating",
     ],
   },
 ];
@@ -82,13 +82,14 @@ export default function ServicesPage() {
             Our Services
           </p>
           <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Licensed Technical Services Across{" "}
-            <span className="text-accent">Four Core Disciplines</span>
+            Licensed{" "}
+            <span className="text-accent">Interior Renovation, Construction</span>{" "}
+            & Technical Services
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Zeepro delivers specialist mechanical, plumbing, finishing, and
-            steel services across the UAE. Every activity is fully licensed and
-            executed by qualified professionals.
+            Zeepro delivers specialist renovation, construction, joinery,
+            mechanical, and plumbing services across the UAE. Every activity is
+            fully licensed and executed by qualified professionals.
           </p>
         </div>
         <div className="mt-16 grid gap-8 sm:grid-cols-2">

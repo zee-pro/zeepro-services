@@ -41,10 +41,10 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 const SERVICE_OPTIONS = [
   { value: "", label: "Select a service..." },
+  { value: "interior-finishing", label: "Interior Renovation & Construction" },
+  { value: "joinery", label: "Joinery & Custom Woodwork" },
   { value: "mechanical-electromechanical", label: "Mechanical & Electromechanical" },
   { value: "plumbing-sanitary", label: "Plumbing & Sanitary Works" },
-  { value: "interior-finishing", label: "Interior Finishing & Renovation" },
-  { value: "steel-cladding", label: "Steel & Cladding Solutions" },
   { value: "general", label: "General Inquiry" },
 ];
 

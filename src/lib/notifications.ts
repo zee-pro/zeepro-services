@@ -13,10 +13,10 @@ interface FormData {
 
 function formatServiceLabel(service: string): string {
   const labels: Record<string, string> = {
+    "interior-finishing": "Interior Renovation & Construction",
+    joinery: "Joinery & Custom Woodwork",
     "mechanical-electromechanical": "Mechanical & Electromechanical",
     "plumbing-sanitary": "Plumbing & Sanitary Works",
-    "interior-finishing": "Interior Finishing & Renovation",
-    "steel-cladding": "Steel & Cladding Solutions",
     general: "General Inquiry",
   };
   return labels[service] ?? service;
