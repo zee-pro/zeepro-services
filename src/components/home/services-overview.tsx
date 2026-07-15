@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Fan, Droplets, PaintRoller, Building2, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { IMAGES } from "@/lib/images";
 import { ServiceImageCarousel } from "./service-image-carousel";
 
 const services = [
@@ -17,7 +15,6 @@ const services = [
       "Comprehensive mechanical and electromechanical solutions for residential, commercial, and industrial facilities. Our licensed technicians handle home AC installation and repair (window, split, cassette, and central units), HVAC systems, air filtration, ventilation, and electromechanical equipment.",
     icon: Fan,
     href: "/services/mechanical-electromechanical",
-    image: IMAGES.services.mechanical,
     accent: "from-blue-900/60 to-blue-950/80",
     border: "border-blue-800/30",
     label: "HVAC & Air Systems",
@@ -37,7 +34,6 @@ const services = [
       "End-to-end plumbing and sanitary contracting for commercial, industrial, and residential projects. From system design through installation to ongoing maintenance, fully code-compliant.",
     icon: Droplets,
     href: "/services/plumbing-sanitary",
-    image: IMAGES.services.plumbing,
     accent: "from-teal-900/60 to-teal-950/80",
     border: "border-teal-800/30",
     label: "Water & Drainage",
@@ -57,7 +53,6 @@ const services = [
       "High-quality interior finishing and renovation services delivered by skilled tradespeople. We handle tiling, painting, carpentry, and wood flooring to deliver premium finishes on schedule.",
     icon: PaintRoller,
     href: "/services/interior-finishing",
-    image: IMAGES.services.interior,
     accent: "from-amber-900/60 to-amber-950/80",
     border: "border-amber-800/30",
     label: "Fit-Out & Finishes",
@@ -77,7 +72,6 @@ const services = [
       "Specialist cladding and steel solutions for major commercial and industrial projects. From facade cladding to steel structure fabrication, delivering durable code-compliant results.",
     icon: Building2,
     href: "/services/steel-cladding",
-    image: IMAGES.services.steel,
     accent: "from-slate-900/60 to-slate-950/80",
     border: "border-slate-800/30",
     label: "Structural Systems",
@@ -152,17 +146,8 @@ export function ServicesOverview() {
                 <article
                   className={`relative flex h-full flex-col overflow-hidden rounded-xl border ${service.border} p-6 transition-all duration-300 hover:border-foreground/20 sm:p-8`}
                 >
-                  {/* Background image with overlay */}
-                  <div className="pointer-events-none absolute inset-0">
-                    <Image
-                      src={service.image}
-                      alt=""
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${service.accent}`} />
-                  </div>
+                  {/* Background gradient overlay */}
+                  <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${service.accent}`} />
 
                   {/* Content relative to overlay */}
                   <div className="relative z-10 flex h-full flex-col">
