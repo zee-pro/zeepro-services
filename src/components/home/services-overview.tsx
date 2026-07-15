@@ -212,9 +212,9 @@ export function ServicesOverview() {
             </motion.div>
           ))}
         </motion.div>
-
-        <ServiceImageCarousel />
       </div>
+
+      <ServiceImageCarousel />
     </section>
   );
 }
