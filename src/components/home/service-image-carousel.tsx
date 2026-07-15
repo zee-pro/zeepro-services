@@ -42,7 +42,7 @@ export function ServiceImageCarousel() {
   const all = [...images, ...images];
 
   return (
-    <div className="mt-16 w-full overflow-hidden">
+    <div className="mt-8 w-full overflow-hidden">
       <div className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-background" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-background" />
