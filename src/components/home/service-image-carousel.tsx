@@ -55,13 +55,13 @@ export function ServiceImageCarousel() {
           {all.map((img, i) => (
             <div
               key={i}
-              className="relative h-48 w-72 shrink-0 rounded-xl sm:h-56 sm:w-80"
+              className="relative h-60 w-[360px] shrink-0 rounded-xl sm:h-[280px] sm:w-[400px]"
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                sizes="320px"
+                sizes="400px"
                 className="rounded-xl object-cover"
                 priority={i < 12}
                 unoptimized
