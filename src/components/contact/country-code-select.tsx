@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { COUNTRY_CODES, type CountryCode } from "@/lib/country-codes";
+import { COUNTRY_CODES } from "@/lib/country-codes";
 import { ChevronDown } from "lucide-react";
 
 interface CountryCodeSelectProps {

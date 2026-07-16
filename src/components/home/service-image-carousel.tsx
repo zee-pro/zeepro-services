@@ -25,7 +25,7 @@ export function ServiceImageCarousel() {
     const track = trackRef.current;
     if (!track) return;
 
-    let start = performance.now();
+    const start = performance.now();
     const speed = 60;
 
     function animate(now: number) {
