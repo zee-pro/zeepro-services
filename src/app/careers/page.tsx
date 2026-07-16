@@ -2,6 +2,7 @@
 
 import { Briefcase, MapPin, Clock, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 import { ApplicationForm } from "@/components/careers/application-form";
 import { JOB_LISTINGS } from "@/data/jobs";
 
@@ -69,18 +70,30 @@ export default function CareersPage() {
   return (
     <>
       <section className="relative flex min-h-[400px] items-center overflow-hidden">
+        <Image
+          src="/images/career.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="pointer-events-none absolute inset-0 object-cover object-[center_30%]"
+        />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,var(--color-accent)/3%,transparent_50%)]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[oklch(0.1962_0.002_286.2/0.9)] via-[oklch(0.1962_0.002_286.2/0.8)] to-[oklch(0.1962_0.002_286.2/0.5)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[oklch(0.1962_0.002_286.2/0.7)] via-transparent to-[oklch(0.1962_0.002_286.2/0.3)]"
         />
         <div className="relative mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">
             Careers
           </p>
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
+          <h1 className="text-3xl font-bold text-primary-foreground sm:text-4xl">
             Build Your Career with Zeepro
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-primary-foreground/70">
             Join a licensed contractor delivering mechanical, plumbing,
             interior finishing, and joinery services across the UAE. We are
             always looking for skilled tradespeople and professionals.

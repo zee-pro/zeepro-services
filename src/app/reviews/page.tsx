@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { ReviewForm } from "@/components/reviews/review-form";
 import { Star } from "lucide-react";
 import type { Review } from "@/data/reviews";
@@ -42,19 +43,31 @@ export default function ReviewsPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden py-16 sm:py-20">
+      <section className="relative flex min-h-[400px] items-center overflow-hidden">
+        <Image
+          src="/images/review.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="pointer-events-none absolute inset-0 object-cover object-[center_30%]"
+        />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,var(--color-accent)/3%,transparent_50%)]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[oklch(0.1962_0.002_286.2/0.9)] via-[oklch(0.1962_0.002_286.2/0.8)] to-[oklch(0.1962_0.002_286.2/0.5)]"
         />
-        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[oklch(0.1962_0.002_286.2/0.7)] via-transparent to-[oklch(0.1962_0.002_286.2/0.3)]"
+        />
+        <div className="relative mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-accent">
             Testimonials
           </p>
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
+          <h1 className="text-3xl font-bold text-primary-foreground sm:text-4xl">
             What Our Partners Say
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-primary-foreground/70">
             We value feedback from the contractors, facility managers, and
             property partners we work with across the UAE.
           </p>
