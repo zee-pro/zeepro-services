@@ -104,7 +104,10 @@ export function Footer() {
                 className="h-28 w-auto"
               />
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-primary-foreground/60">
+            <p className="mt-3 text-sm font-medium italic leading-relaxed text-primary-foreground/80">
+              {SITE_CONFIG.slogan}
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-primary-foreground/60">
               {SITE_CONFIG.tagline}
             </p>
           </div>

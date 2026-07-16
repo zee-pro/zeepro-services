@@ -43,6 +43,9 @@ export function CompanyProfile() {
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
               About Us
             </p>
+            <p className="mb-2 text-sm font-medium italic tracking-wide text-accent/80">
+              Where Expertise Meets Execution
+            </p>
             <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               Licensed Technical Contractor{" "}
               <span className="text-accent">Serving the UAE</span>

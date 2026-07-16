@@ -1,5 +1,6 @@
 export const SITE_CONFIG = {
   name: "Zeepro",
+  slogan: "Where Expertise Meets Execution",
   tagline: "Interior Renovation, Construction & Technical Services",
   description:
     "Zeepro is a UAE-based licensed contractor specializing in interior renovation, construction, joinery, mechanical, and plumbing services.",

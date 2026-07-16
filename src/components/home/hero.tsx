@@ -74,6 +74,9 @@ export function Hero() {
               Licensed UAE Contractor
             </div>
 
+            <p className="mb-2 text-sm font-medium italic tracking-wide text-accent/80">
+              Where Expertise Meets Execution
+            </p>
             <h1 className="text-4xl font-bold leading-tight text-primary-foreground sm:text-5xl lg:text-6xl">
               Technical Expertise.
               <br />

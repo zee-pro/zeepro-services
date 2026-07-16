@@ -6,6 +6,7 @@ export function JsonLd() {
     "@type": "LocalBusiness",
     name: SITE_CONFIG.name,
     logo: "/zeepro_logo.png",
+    slogan: SITE_CONFIG.slogan,
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
