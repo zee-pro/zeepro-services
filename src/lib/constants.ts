@@ -48,6 +48,7 @@ export const NAV_ITEMS: readonly NavItem[] = [
     ],
   },
   { label: "Reviews", href: "/reviews" },
+  { label: "Careers", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
 ];
 
