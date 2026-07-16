@@ -95,13 +95,15 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <Image
-              src="/zeepro-logo-white-bg.png"
-              alt="Zeepro logo"
-              width={600}
-              height={200}
-              className="h-40 w-auto"
-            />
+            <div className="inline-flex rounded-lg bg-white/90 p-4 shadow-md">
+              <Image
+                src="/zeepro_logo.png"
+                alt="Zeepro logo"
+                width={600}
+                height={200}
+                className="h-28 w-auto"
+              />
+            </div>
             <p className="mt-3 text-sm leading-relaxed text-primary-foreground/60">
               {SITE_CONFIG.tagline}
             </p>

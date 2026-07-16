@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/zeepro-logo.png",
+        url: "/zeepro_logo.png",
         width: 1200,
         height: 630,
         alt: "Zeepro | Licensed Mechanical, Plumbing, Finishing & Steel Services UAE",

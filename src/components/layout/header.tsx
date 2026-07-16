@@ -19,7 +19,7 @@ export function Header() {
       <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center">
           <Image
-            src="/zeepro-logo.png"
+            src="/zeepro_logo.png"
             alt="Zeepro logo"
             width={240}
             height={80}

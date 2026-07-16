@@ -5,6 +5,7 @@ export function JsonLd() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: SITE_CONFIG.name,
+    logo: "/zeepro_logo.png",
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     telephone: SITE_CONFIG.phone,
