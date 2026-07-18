@@ -29,11 +29,17 @@ export function ServiceDetail({
           fill
           priority
           sizes="100vw"
-          className="pointer-events-none absolute inset-0 object-cover"
+          className="pointer-events-none absolute inset-0 object-cover scale-105"
         />
+
+        {/* Aurora blobs */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="aurora-blob-1 absolute -top-[20%] -right-[10%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,oklch(0.7821_0.1832_120.4/0.1),transparent_60%)] blur-3xl" />
+        </div>
+
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[oklch(0.1962_0.002_286.2/0.92)] via-[oklch(0.1962_0.002_286.2/0.7)] to-[oklch(0.1962_0.002_286.2/0.4)]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[oklch(0.1962_0.002_286.2/0.93)] via-[oklch(0.1962_0.002_286.2/0.7)] to-[oklch(0.1962_0.002_286.2/0.4)]"
         />
         <div
           aria-hidden="true"
@@ -53,18 +59,21 @@ export function ServiceDetail({
 
         <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <Link
               href="/services"
-              className="inline-flex items-center gap-1.5 text-sm text-primary-foreground/60 transition-colors hover:text-accent"
+              className="link-underline inline-flex items-center gap-1.5 text-sm text-primary-foreground/60 transition-colors hover:text-accent"
             >
               <ChevronRight className="size-3.5 rotate-180" />
               All Services
             </Link>
-            <h1 className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl">
+            <h1
+              className="mt-4 text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl lg:text-5xl"
+              style={{ fontSize: "clamp(1.875rem, 1.5rem + 2.5vw, 3rem)" }}
+            >
               {title}
             </h1>
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-primary-foreground/70">
@@ -84,7 +93,7 @@ export function ServiceDetail({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
               Key Capabilities
@@ -93,19 +102,32 @@ export function ServiceDetail({
               What We Deliver
             </h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {capabilities.map((capability) => (
-                <div
+              {capabilities.map((capability, i) => (
+                <motion.div
                   key={capability}
-                  className="flex items-start gap-3 rounded-lg border border-border/50 bg-muted/30 p-4"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: i * 0.06,
+                    duration: 0.4,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="group flex items-start gap-3 rounded-xl border border-border/50 bg-muted/30 p-4 transition-all duration-300 hover:border-accent/30 hover:bg-accent/5 hover:shadow-lg hover:shadow-accent/5"
                 >
-                  <Check
-                    className="mt-0.5 size-5 shrink-0 text-accent"
-                    aria-hidden="true"
-                  />
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                  >
+                    <Check
+                      className="mt-0.5 size-5 shrink-0 text-accent"
+                      aria-hidden="true"
+                    />
+                  </motion.div>
                   <span className="text-sm text-foreground/80">
                     {capability}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -119,10 +141,10 @@ export function ServiceDetail({
         />
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8"
         >
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -139,7 +161,7 @@ export function ServiceDetail({
             <Link href="/contact">
               <Button
                 size="lg"
-                className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
+                className="btn-magnetic gap-2 bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300"
               >
                 Start a Conversation
                 <ChevronRight className="size-4" />
