@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader2, Send, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -135,10 +136,15 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="flex flex-col items-center justify-center rounded-xl border border-border bg-background p-12 text-center">
-        <div className="flex size-16 items-center justify-center rounded-full bg-accent/10">
+      <div className="flex flex-col items-center justify-center rounded-2xl border border-border bg-background p-12 text-center shadow-lg shadow-black/[0.02]">
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="flex size-16 items-center justify-center rounded-full bg-accent/10"
+        >
           <CheckCircle2 className="size-8 text-accent" aria-hidden="true" />
-        </div>
+        </motion.div>
         <h2 className="mt-6 text-xl font-bold text-foreground">Thank You</h2>
         <p className="mt-2 max-w-sm text-muted-foreground">
           Your inquiry has been received. A member of the Zeepro team will
@@ -167,7 +173,7 @@ export function ContactForm() {
         />
       </div>
 
-      <div className="rounded-xl border border-border bg-background p-6 sm:p-8">
+      <div className="rounded-2xl border border-border bg-background p-6 sm:p-8 shadow-lg shadow-black/[0.02]">
         <div className="mb-6">
           <p className="text-xs font-semibold uppercase tracking-widest text-accent">
             Get Started
@@ -384,7 +390,7 @@ export function ContactForm() {
         <Button
           type="submit"
           size="lg"
-          className="mt-4 gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
+          className="btn-magnetic mt-4 gap-2 bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
