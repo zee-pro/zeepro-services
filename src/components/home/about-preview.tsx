@@ -39,6 +39,19 @@ const highlights = [
   },
 ];
 
+const activities = [
+  "Interior Renovation & Construction",
+  "Joinery & Custom Woodwork",
+  "HVAC Installation & Maintenance",
+  "Air Filtration Systems",
+  "Ventilation Systems",
+  "Electromechanical Equipment",
+  "Cladding Works",
+  "Plumbing & Sanitary Contracting",
+  "Floor & Wall Tiling Works",
+  "Painting Contracting",
+];
+
 export function AboutPreview() {
   return (
     <section className="relative overflow-hidden bg-muted/50 py-24 sm:py-32">
@@ -54,7 +67,7 @@ export function AboutPreview() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-3"
           >
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
@@ -63,7 +76,10 @@ export function AboutPreview() {
             <p className="mb-2 text-sm font-medium italic tracking-wide text-accent/80">
               Where Expertise Meets Execution
             </p>
-            <h2 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+            <h2
+              className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
+              style={{ fontSize: "clamp(1.875rem, 1.5rem + 2vw, 3rem)" }}
+            >
               Built on{" "}
               <span className="text-accent">Technical Expertise</span> and
               Reliable Partnerships
@@ -75,31 +91,55 @@ export function AboutPreview() {
             </p>
 
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              {highlights.map((item) => (
-                <div key={item.title} className="flex gap-4">
-                  <item.icon
-                    className="mt-1 size-5 shrink-0 text-accent"
-                    aria-hidden="true"
-                  />
+              {highlights.map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: i * 0.1,
+                    duration: 0.5,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="group flex gap-4"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-accent/10"
+                  >
+                    <item.icon
+                      className="size-5 text-accent"
+                      aria-hidden="true"
+                    />
+                  </motion.div>
                   <div>
-                    <h3 className="font-semibold text-foreground">
+                    <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
                       {item.title}
                     </h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                       {item.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            <Link
-              href="/about"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent/80"
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.4 }}
             >
-              Learn more about Zeepro
-              <ArrowRight className="size-4" />
-            </Link>
+              <Link
+                href="/about"
+                className="link-underline mt-8 inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent/80"
+              >
+                Learn more about Zeepro
+                <ArrowRight className="size-4" />
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Right: Visual panel */}
@@ -107,12 +147,12 @@ export function AboutPreview() {
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-2"
           >
-            <div className="relative overflow-hidden rounded-xl border border-border bg-background p-8">
+            <div className="group relative overflow-hidden rounded-2xl border border-border bg-background p-8 transition-all duration-500 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/5">
               {/* Subtle background image */}
-              <div className="pointer-events-none absolute inset-0 opacity-[0.06]">
+              <div className="pointer-events-none absolute inset-0 opacity-[0.06] transition-opacity duration-500 group-hover:opacity-[0.1]">
                 <Image
                   src={IMAGES.about}
                   alt=""
@@ -121,73 +161,36 @@ export function AboutPreview() {
                   className="object-cover"
                 />
               </div>
+
+              {/* Accent corner glow on hover */}
+              <div className="pointer-events-none absolute -top-12 -right-12 size-32 rounded-full bg-accent/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
               <div className="relative">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
-                10 Licensed Activities
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    01
-                  </span>
-                  Interior Renovation & Construction
-                </li>
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    02
-                  </span>
-                  Joinery & Custom Woodwork
-                </li>
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    03
-                  </span>
-                  HVAC Installation & Maintenance
-                </li>
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    04
-                  </span>
-                  Air Filtration Systems
-                </li>
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    05
-                  </span>
-                  Ventilation Systems
-                </li>
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    06
-                  </span>
-                  Electromechanical Equipment
-                </li>
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    07
-                  </span>
-                  Cladding Works
-                </li>
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    08
-                  </span>
-                  Plumbing & Sanitary Contracting
-                </li>
-                <li className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    09
-                  </span>
-                  Floor & Wall Tiling Works
-                </li>
-                <li className="flex items-center gap-3 text-sm font-medium text-foreground">
-                  <span className="flex size-6 items-center justify-center rounded bg-accent/10 text-xs font-bold text-accent">
-                    10
-                  </span>
-                  Painting Contracting
-                </li>
-              </ul>
-            </div>
+                <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
+                  10 Licensed Activities
+                </p>
+                <ul className="space-y-3">
+                  {activities.map((activity, i) => (
+                    <motion.li
+                      key={activity}
+                      initial={{ opacity: 0, x: 10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        delay: 0.2 + i * 0.04,
+                        duration: 0.3,
+                        ease: "easeOut",
+                      }}
+                      className="flex items-center gap-3 border-b border-border pb-3 text-sm font-medium text-foreground last:border-b-0 last:pb-0"
+                    >
+                      <span className="flex size-6 shrink-0 items-center justify-center rounded-md bg-accent/10 text-xs font-bold text-accent">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {activity}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </motion.div>
         </div>
