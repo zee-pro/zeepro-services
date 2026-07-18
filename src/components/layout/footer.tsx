@@ -26,22 +26,22 @@ function PhoneModal({ onClose }: { onClose: () => void }) {
 
   return (
     <>
-      <div className="fixed inset-0 z-40 bg-black/40" />
+      <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm" />
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div
           ref={ref}
-          className="w-full max-w-xs rounded-xl border border-border bg-background p-2 shadow-2xl"
+          className="w-full max-w-xs rounded-2xl glass border border-border/30 p-2 shadow-2xl"
         >
           <a
             href={`tel:${number}`}
-            className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10"
           >
             <PhoneCall className="size-4 text-accent" />
             Call
           </a>
           <a
             href={`sms:${number}`}
-            className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10"
           >
             <MessageSquare className="size-4 text-accent" />
             Message
@@ -50,7 +50,7 @@ function PhoneModal({ onClose }: { onClose: () => void }) {
             href={SOCIAL_LINKS.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10"
           >
             <MessageCircle className="size-4 text-accent" />
             WhatsApp
@@ -77,9 +77,13 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative border-t border-border/50 bg-primary">
+    <footer className="relative border-t border-border/50 bg-primary overflow-hidden">
       {showPhoneModal && <PhoneModal onClose={() => setShowPhoneModal(false)} />}
 
+      {/* Gradient separator line */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+
+      {/* Subtle grid pattern */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.02]"
@@ -95,16 +99,16 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <div className="inline-flex rounded-lg bg-white/90 p-4 shadow-md">
+            <div className="group relative inline-block">
               <Image
                 src="/zeepro_logo.png"
                 alt="Zeepro logo"
                 width={600}
                 height={200}
-                className="h-28 w-auto"
+                className="h-40 w-auto transition-all duration-500 drop-shadow-[0_0_12px_rgba(172,201,102,0.18)] group-hover:drop-shadow-[0_0_16px_rgba(172,201,102,0.5)]"
               />
             </div>
-            <p className="mt-3 text-sm font-medium italic leading-relaxed text-primary-foreground/80">
+            <p className="mt-3 text-[0.95rem] text-accent/70" style={{             fontFamily: "var(--font-outfit), sans-serif" }}>
               {SITE_CONFIG.slogan}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-primary-foreground/60">
@@ -124,7 +128,7 @@ export function Footer() {
                         <li key={child.label}>
                           <Link
                             href={child.href}
-                            className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground"
+                            className="link-underline text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground"
                           >
                             {child.label}
                           </Link>
@@ -146,7 +150,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground"
+                    className="link-underline text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground"
                   >
                     {item.label}
                   </Link>
@@ -165,13 +169,13 @@ export function Footer() {
                   href={`mailto:${SITE_CONFIG.email}?subject=Inquiry via Zeepro Website`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex cursor-pointer items-center gap-3 transition-colors hover:text-primary-foreground"
+                  className="group flex cursor-pointer items-center gap-3 transition-colors hover:text-primary-foreground"
                 >
-                  <Mail className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  <Mail className="size-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
                   <span className="text-xs font-medium text-primary-foreground/40">
                     Email
                   </span>
-                  <span className="ms-auto text-sm text-primary-foreground/60">
+                  <span className="ms-auto text-sm text-primary-foreground/60 group-hover:text-primary-foreground/90 transition-colors">
                     {SITE_CONFIG.email}
                   </span>
                 </a>
@@ -180,13 +184,13 @@ export function Footer() {
                 <button
                   type="button"
                   onClick={handlePhoneClick}
-                  className="flex w-full cursor-pointer items-center gap-3 text-start transition-colors hover:text-primary-foreground"
+                  className="group flex w-full cursor-pointer items-center gap-3 text-start transition-colors hover:text-primary-foreground"
                 >
-                  <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
+                  <Phone className="size-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
                   <span className="text-xs font-medium text-primary-foreground/40">
                     Phone
                   </span>
-                  <span className="ms-auto text-sm text-primary-foreground/60">
+                  <span className="ms-auto text-sm text-primary-foreground/60 group-hover:text-primary-foreground/90 transition-colors">
                     {copied ? "Copied!" : SITE_CONFIG.phone}
                   </span>
                 </button>
@@ -206,7 +210,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/10 pt-8 sm:flex-row">
+        {/* Gradient separator before copyright */}
+        <div className="mt-12 h-px bg-gradient-to-r from-transparent via-primary-foreground/10 to-transparent" />
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-xs text-primary-foreground/40">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights
             reserved.
@@ -216,7 +223,7 @@ export function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-xs text-primary-foreground/40 transition-colors hover:text-primary-foreground/80"
+                className="link-underline text-xs text-primary-foreground/40 transition-colors hover:text-primary-foreground/80"
               >
                 {link.label}
               </Link>
