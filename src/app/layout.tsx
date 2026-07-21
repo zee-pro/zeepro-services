@@ -28,16 +28,16 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   title: {
-    default: "Zeepro | Licensed Mechanical, Plumbing, Finishing & Steel Services UAE",
+    default: "Zeepro | Licensed Interior Renovation, Construction & Technical Services UAE",
     template: "%s | Zeepro",
   },
   description:
-    "Zeepro is a UAE-based licensed contractor specializing in mechanical, plumbing, interior finishing, and steel services.",
+    "Zeepro is a UAE-based licensed contractor specializing in interior renovation, construction, joinery, mechanical, and plumbing services.",
   metadataBase: new URL("https://zeepro.ae"),
   openGraph: {
-    title: "Zeepro | Licensed Mechanical, Plumbing, Finishing & Steel Services UAE",
+    title: "Zeepro | Licensed Interior Renovation, Construction & Technical Services UAE",
     description:
-      "Zeepro is a UAE-based licensed contractor specializing in mechanical, plumbing, interior finishing, and steel services.",
+      "Zeepro is a UAE-based licensed contractor specializing in interior renovation, construction, joinery, mechanical, and plumbing services.",
     url: "https://zeepro.ae",
     siteName: "Zeepro",
     locale: "en_AE",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: "/zeepro_logo.png",
         width: 1200,
         height: 630,
-        alt: "Zeepro | Licensed Mechanical, Plumbing, Finishing & Steel Services UAE",
+        alt: "Zeepro | Licensed Interior Renovation, Construction & Technical Services UAE",
       },
     ],
   },
