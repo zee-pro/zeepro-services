@@ -23,6 +23,10 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-touch-icon.png",
+  },
   title: {
     default: "Zeepro | Licensed Mechanical, Plumbing, Finishing & Steel Services UAE",
     template: "%s | Zeepro",
