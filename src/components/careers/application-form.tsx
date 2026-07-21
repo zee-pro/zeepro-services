@@ -21,6 +21,7 @@ export function ApplicationForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [trade, setTrade] = useState("");
+  const [customTrade, setCustomTrade] = useState("");
   const [experience, setExperience] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -29,7 +30,7 @@ export function ApplicationForm() {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 
-  const trades = [...new Set(JOB_LISTINGS.map((j) => j.trade))];
+  const trades = [...new Set(JOB_LISTINGS.map((j) => j.trade)), "Others"];
 
   const validate = (): FieldErrors => {
     const errs: FieldErrors = {};
@@ -41,6 +42,7 @@ export function ApplicationForm() {
     }
     if (!phone.trim()) errs.phone = "Phone number is required";
     if (!trade) errs.trade = "Please select a trade";
+    if (trade === "Others" && !customTrade.trim()) errs.trade = "Please specify your trade";
     if (!message.trim()) {
       errs.message = "Please tell us about yourself";
     } else if (message.trim().length < 10) {
@@ -72,7 +74,7 @@ export function ApplicationForm() {
           name: name.trim(),
           email: email.trim(),
           phone: phone.trim(),
-          trade,
+          trade: trade === "Others" ? customTrade : trade,
           experience: experience.trim(),
           message: message.trim(),
         }),
@@ -87,6 +89,7 @@ export function ApplicationForm() {
       setEmail("");
       setPhone("");
       setTrade("");
+      setCustomTrade("");
       setExperience("");
       setMessage("");
     } catch {
@@ -218,6 +221,16 @@ export function ApplicationForm() {
                   </option>
                 ))}
               </select>
+              {trade === "Others" && (
+                <Input
+                  id="app-custom-trade"
+                  placeholder="Specify your trade..."
+                  value={customTrade}
+                  onChange={(e) => setCustomTrade(e.target.value)}
+                  onBlur={() => handleBlur("trade")}
+                  className="h-10"
+                />
+              )}
               {touched.trade && errors.trade && (
                 <p className="text-xs text-destructive">{errors.trade}</p>
               )}

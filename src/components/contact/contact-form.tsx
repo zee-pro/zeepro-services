@@ -26,6 +26,7 @@ const contactSchema = z
     whatsappNumber: z.string(),
     whatsappId: z.string(),
     service: z.string().min(1, "Please select a service"),
+    customService: z.string().optional(),
     message: z.string().min(10, "Message must be at least 10 characters"),
     honeypot: z.string().max(0, "Bot detected"),
   })
@@ -36,6 +37,13 @@ const contactSchema = z
       return data.whatsappId.length > 0;
     },
     { message: "WhatsApp number or ID is required", path: ["whatsappNumber"] },
+  )
+  .refine(
+    (data) => {
+      if (data.service === "others") return !!data.customService?.trim();
+      return true;
+    },
+    { message: "Please specify your service", path: ["customService"] },
   );
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -47,6 +55,7 @@ const SERVICE_OPTIONS = [
   { value: "mechanical-electromechanical", label: "Mechanical & Electromechanical" },
   { value: "plumbing-sanitary", label: "Plumbing & Sanitary Works" },
   { value: "general", label: "General Inquiry" },
+  { value: "others", label: "Others" },
 ];
 
 export function ContactForm() {
@@ -74,6 +83,7 @@ export function ContactForm() {
       whatsappNumber: "",
       whatsappId: "",
       service: "",
+      customService: "",
       message: "",
       honeypot: "",
     },
@@ -83,6 +93,7 @@ export function ContactForm() {
   const whatsappType = watch("whatsappType");
   const phoneCountryCode = watch("phoneCountryCode");
   const phoneNumber = watch("phoneNumber");
+  const service = watch("service");
 
   const onSubmit = async (data: ContactFormData) => {
     try {
@@ -101,6 +112,7 @@ export function ContactForm() {
 
       const payload = {
         ...data,
+        service: data.service === "others" ? data.customService : data.service,
         phone: `${phoneCountry?.dial ?? ""}${data.phoneNumber}`,
         whatsapp,
       };
@@ -361,8 +373,17 @@ export function ContactForm() {
                 </option>
               ))}
             </select>
-            {errors.service && (
-              <p className="text-xs text-destructive">{errors.service.message}</p>
+            {service === "others" && (
+              <Input
+                id="customService"
+                placeholder="Specify your service..."
+                {...register("customService")}
+                aria-invalid={!!errors.customService}
+                className="h-10"
+              />
+            )}
+            {(errors.service || errors.customService) && (
+              <p className="text-xs text-destructive">{errors.customService?.message || errors.service?.message}</p>
             )}
           </div>
 
