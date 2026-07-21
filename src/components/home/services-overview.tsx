@@ -252,19 +252,14 @@ export function ServicesOverview() {
           </p>
         </motion.div>
 
-        {/* Grid layout: first card spans 2 cols + 2 rows on desktop */}
-        <div className="mt-16 grid grid-cols-1 gap-5 lg:grid-cols-3 auto-rows-[minmax(280px,auto)]">
+        {/* Grid layout: 2 columns on desktop, 1 on mobile */}
+        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2">
           {services.map((service, index) => (
-            <div
+            <ServiceCard
               key={service.id}
-              className={index === 0 ? "lg:col-span-2 lg:row-span-2" : ""}
-            >
-              <ServiceCard
-                service={service}
-                index={index}
-                large={index === 0}
-              />
-            </div>
+              service={service}
+              index={index}
+            />
           ))}
         </div>
       </div>
