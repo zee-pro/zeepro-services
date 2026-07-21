@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="relative overflow-hidden py-16">
+    <div className="relative overflow-hidden pt-28 pb-16">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,var(--color-accent)/3%,transparent_50%)]"

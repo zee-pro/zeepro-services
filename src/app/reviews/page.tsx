@@ -50,7 +50,7 @@ export default function ReviewsPage() {
           fill
           priority
           sizes="100vw"
-          className="pointer-events-none absolute inset-0 object-cover object-[center_30%]"
+          className="pointer-events-none absolute inset-0 object-cover object-[center_25%]"
         />
         <div
           aria-hidden="true"

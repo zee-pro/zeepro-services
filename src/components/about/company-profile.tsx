@@ -35,10 +35,10 @@ export function CompanyProfile() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-start gap-16 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
               About Us
@@ -46,11 +46,13 @@ export function CompanyProfile() {
             <p className="mb-2 text-sm font-medium italic tracking-wide text-accent/80">
               Where Expertise Meets Execution
             </p>
-            <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+            <h1
+              className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
+              style={{ fontSize: "clamp(1.875rem, 1.5rem + 2vw, 3rem)" }}
+            >
               Licensed Technical Contractor{" "}
               <span className="text-accent">Serving the UAE</span>
             </h1>
-            {/* TODO: [Copywriter] About Us - Our Story */}
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 Zeepro is a UAE-based licensed contractor specialising in
@@ -59,7 +61,6 @@ export function CompanyProfile() {
                 with professional, reliable service delivery.
               </p>
               <p>
-                {/* TODO: [Client] Provide company history, founding story, and mission statement */}
                 Our team brings together extensive experience across all 10
                 licensed trades, ensuring every project benefits from skilled
                 technical oversight and a partnership-focused approach.
@@ -68,33 +69,48 @@ export function CompanyProfile() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="rounded-xl border border-border bg-muted/30 p-8">
+            <div className="group rounded-2xl border border-border bg-muted/30 p-8 transition-all duration-500 hover:border-accent/20 hover:shadow-xl hover:shadow-accent/5">
               <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-accent">
                 Our Values
               </p>
               <div className="space-y-6">
-                {values.map((value) => (
-                  <div key={value.title} className="flex gap-4">
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                {values.map((value, i) => (
+                  <motion.div
+                    key={value.title}
+                    initial={{ opacity: 0, x: 16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: i * 0.1,
+                      duration: 0.4,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="group/item flex gap-4"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.15, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                      className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-accent/10"
+                    >
                       <value.icon
                         className="size-5 text-accent"
                         aria-hidden="true"
                       />
-                    </div>
+                    </motion.div>
                     <div>
-                      <h3 className="font-semibold text-foreground">
+                      <h3 className="font-semibold text-foreground group-hover/item:text-accent transition-colors duration-300">
                         {value.title}
                       </h3>
                       <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                         {value.description}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
