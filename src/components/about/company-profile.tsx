@@ -56,7 +56,8 @@ export function CompanyProfile() {
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 Zeepro is a UAE-based licensed contractor specialising in
-                mechanical, plumbing, interior finishing, and steel services.
+                interior renovation, construction, joinery, mechanical, and
+                plumbing services.
                 We serve contractors, facility managers, and property partners
                 with professional, reliable service delivery.
               </p>

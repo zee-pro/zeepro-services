@@ -28,7 +28,7 @@ const trustItems = [
     icon: Wrench,
     title: "Technical Expertise",
     description:
-      "Skilled engineers and tradespeople with deep experience across mechanical, plumbing, finishing, and steel disciplines.",
+      "Skilled engineers and tradespeople with deep experience across interior renovation, construction, joinery, mechanical, and plumbing disciplines.",
   },
   {
     icon: HardHat,

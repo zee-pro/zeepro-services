@@ -5,11 +5,11 @@ import { ContactInfo } from "@/components/contact/contact-info";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Zeepro for licensed mechanical, plumbing, interior finishing, and steel contracting services in the UAE.",
+    "Contact Zeepro for licensed interior renovation, construction, joinery, mechanical, and plumbing services in the UAE.",
   openGraph: {
     title: "Contact Us | Zeepro",
     description:
-      "Contact Zeepro for licensed mechanical, plumbing, interior finishing, and steel contracting services in the UAE.",
+      "Contact Zeepro for licensed interior renovation, construction, joinery, mechanical, and plumbing services in the UAE.",
   },
 };
 
