@@ -23,6 +23,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/zeepro_logo.png",
+  },
   title: {
     default: "Zeepro | Licensed Mechanical, Plumbing, Finishing & Steel Services UAE",
     template: "%s | Zeepro",
