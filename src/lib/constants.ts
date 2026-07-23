@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   tagline: "Interior Renovation, Construction & Technical Services",
   description:
     "Zeepro is a UAE-based licensed contractor specializing in interior renovation, construction, joinery, mechanical, and plumbing services.",
-  url: "https://zeepro.ae",
+  url: "https://zeeproservices.com",
   email: "zeepro.services@gmail.com",
   phone: "+971504786043",
   phone2: "+971502061768",
@@ -32,19 +32,19 @@ export const NAV_ITEMS: readonly NavItem[] = [
     children: [
       {
         label: "Interior Renovation & Construction",
-        href: "/services/interior-finishing",
+        href: "/services#interior-finishing",
       },
       {
         label: "Joinery & Custom Woodwork",
-        href: "/services/joinery",
+        href: "/services#joinery",
       },
       {
         label: "Mechanical & Electromechanical",
-        href: "/services/mechanical-electromechanical",
+        href: "/services#mechanical-electromechanical",
       },
       {
         label: "Plumbing & Sanitary Works",
-        href: "/services/plumbing-sanitary",
+        href: "/services#plumbing-sanitary",
       },
     ],
   },

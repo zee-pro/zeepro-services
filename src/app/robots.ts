@@ -2,10 +2,13 @@ import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-    sitemap: "https://zeepro.ae/sitemap.xml",
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: "/api/",
+      },
+    ],
+    sitemap: "https://zeeproservices.com/sitemap.xml",
   };
 }
