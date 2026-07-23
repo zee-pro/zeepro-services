@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef, type RefObject } from "react";
-import { ChevronDown } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useCallback, type RefObject } from "react";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { SERVICES } from "@/data/services";
 
 interface MobileCategoryBarProps {
@@ -11,13 +11,16 @@ interface MobileCategoryBarProps {
 
 export function MobileCategoryBar({ scrollRef }: MobileCategoryBarProps) {
   const [activeId, setActiveId] = useState<string>(SERVICES[0]?.id ?? "");
-  const titleRef = useRef<HTMLDivElement>(null);
 
   const { scrollY } = useScroll({ container: scrollRef });
-  const titleOpacity = useTransform(scrollY, [0, 80], [1, 0]);
-  const titleY = useTransform(scrollY, [0, 80], [0, -10]);
-  const titleHeight = useTransform(scrollY, [0, 80], ["auto", "0px"]);
-  const titleOverflow = useTransform(scrollY, [0, 80], ["visible", "hidden"]);
+
+  const rawOpacity = useTransform(scrollY, [0, 120], [1, 0]);
+  const rawY = useTransform(scrollY, [0, 120], [0, -20]);
+  const rawScale = useTransform(scrollY, [0, 120], [1, 0.97]);
+
+  const opacity = useSpring(rawOpacity, { stiffness: 300, damping: 30 });
+  const y = useSpring(rawY, { stiffness: 300, damping: 30 });
+  const scale = useSpring(rawScale, { stiffness: 300, damping: 30 });
 
   const handleChange = useCallback(
     (id: string) => {
@@ -64,27 +67,28 @@ export function MobileCategoryBar({ scrollRef }: MobileCategoryBarProps) {
 
   return (
     <div className="lg:hidden flex flex-col border-b border-border/30 bg-background">
-      {/* Title section — fades out on scroll */}
+      {/* Title section — smooth fade/slide out */}
       <motion.div
-        ref={titleRef}
-        style={{ opacity: titleOpacity, height: titleHeight, overflow: titleOverflow }}
-        className="px-4 pt-4"
+        style={{ opacity, y, scale, transformOrigin: "top center" }}
+        className="px-4 pt-4 pb-3"
       >
-        <motion.div style={{ y: titleY }}>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            Our Services
-          </p>
-          <h1 className="text-xl font-bold text-foreground leading-snug">
-            Licensed{" "}
-            <span className="text-accent">Interior Renovation, Construction</span>{" "}
-            & Technical Services
-          </h1>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Every activity is fully licensed and executed by qualified
-            professionals. We deliver renovation, construction, joinery, and
-            technical services to projects throughout the UAE.
-          </p>
-        </motion.div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent">
+          Our Services
+        </p>
+        <h1 className="text-xl font-bold text-foreground leading-snug">
+          Licensed{" "}
+          <span className="text-accent">Interior Renovation, Construction</span>{" "}
+          & Technical Services
+        </h1>
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+          Every activity is fully licensed and executed by qualified
+          professionals. We deliver renovation, construction, joinery, and
+          technical services to projects throughout the UAE.
+        </p>
+        <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-accent">
+          <span>Scroll to explore</span>
+          <ChevronRight className="size-3 animate-pulse" />
+        </div>
       </motion.div>
 
       {/* Dropdown — sticks to top after title scrolls away */}
