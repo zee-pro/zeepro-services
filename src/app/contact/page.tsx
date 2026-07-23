@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     description:
       "Contact Zeepro for licensed interior renovation, construction, joinery, mechanical, and plumbing services in the UAE.",
   },
+  alternates: {
+    canonical: "https://zeeproservices.com/contact",
+  },
 };
 
 export default function ContactPage() {

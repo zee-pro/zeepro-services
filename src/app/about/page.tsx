@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     description:
       "Learn about Zeepro, a UAE-based licensed contractor specializing in interior renovation, construction, joinery, mechanical, and plumbing services.",
   },
+  alternates: {
+    canonical: "https://zeeproservices.com/about",
+  },
 };
 
 export default function AboutPage() {
