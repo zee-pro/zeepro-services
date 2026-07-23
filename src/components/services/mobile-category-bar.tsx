@@ -1,0 +1,114 @@
+"use client";
+
+import { useState, useEffect, useCallback, useRef, type RefObject } from "react";
+import { ChevronDown } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { SERVICES } from "@/data/services";
+
+interface MobileCategoryBarProps {
+  scrollRef: RefObject<HTMLDivElement | null>;
+}
+
+export function MobileCategoryBar({ scrollRef }: MobileCategoryBarProps) {
+  const [activeId, setActiveId] = useState<string>(SERVICES[0]?.id ?? "");
+  const titleRef = useRef<HTMLDivElement>(null);
+
+  const { scrollY } = useScroll({ container: scrollRef });
+  const titleOpacity = useTransform(scrollY, [0, 80], [1, 0]);
+  const titleY = useTransform(scrollY, [0, 80], [0, -10]);
+  const titleHeight = useTransform(scrollY, [0, 80], ["auto", "0px"]);
+  const titleOverflow = useTransform(scrollY, [0, 80], ["visible", "hidden"]);
+
+  const handleChange = useCallback(
+    (id: string) => {
+      setActiveId(id);
+      const el = document.getElementById(id);
+      const container = scrollRef?.current;
+      if (el && container) {
+        const top = el.offsetTop - container.offsetTop;
+        container.scrollTo({ top, behavior: "smooth" });
+      }
+    },
+    [scrollRef],
+  );
+
+  useEffect(() => {
+    const container = scrollRef?.current;
+    if (!container) return;
+
+    const observers: IntersectionObserver[] = [];
+
+    SERVICES.forEach((cat) => {
+      const el = document.getElementById(cat.id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveId(cat.id);
+            }
+          });
+        },
+        { root: container, rootMargin: "-10% 0px -70% 0px", threshold: 0 },
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, [scrollRef]);
+
+  return (
+    <div className="lg:hidden flex flex-col border-b border-border/30 bg-background">
+      {/* Title section — fades out on scroll */}
+      <motion.div
+        ref={titleRef}
+        style={{ opacity: titleOpacity, height: titleHeight, overflow: titleOverflow }}
+        className="px-4 pt-4"
+      >
+        <motion.div style={{ y: titleY }}>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent">
+            Our Services
+          </p>
+          <h1 className="text-xl font-bold text-foreground leading-snug">
+            Licensed{" "}
+            <span className="text-accent">Interior Renovation, Construction</span>{" "}
+            & Technical Services
+          </h1>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Every activity is fully licensed and executed by qualified
+            professionals. We deliver renovation, construction, joinery, and
+            technical services to projects throughout the UAE.
+          </p>
+        </motion.div>
+      </motion.div>
+
+      {/* Dropdown — sticks to top after title scrolls away */}
+      <div className="sticky top-16 z-20 bg-background border-t border-border/30">
+        <div className="flex items-center gap-3 px-4 py-3">
+          <span className="shrink-0 text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
+            Jump to
+          </span>
+          <div className="relative flex-1">
+            <select
+              value={activeId}
+              onChange={(e) => handleChange(e.target.value)}
+              className="w-full appearance-none rounded-xl border border-border bg-muted/50 px-4 py-2.5 pr-10 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
+            >
+              {SERVICES.map((cat) => (
+                <option key={cat.id} value={cat.id}>
+                  {cat.title}
+                </option>
+              ))}
+            </select>
+            <ChevronDown className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

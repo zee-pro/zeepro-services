@@ -479,6 +479,15 @@
   animation: slide-out-right 0.25s cubic-bezier(0.7, 0, 0.84, 0) forwards;
 }
 
+/* ── Hidden Scrollbar ─────────────────────────────────────────── */
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Reduced Motion ──────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

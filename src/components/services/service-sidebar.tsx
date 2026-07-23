@@ -1,27 +1,35 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, type RefObject } from "react";
 import { cn } from "@/lib/utils";
-import type { ServiceCategory } from "@/data/services";
+import { SERVICES } from "@/data/services";
 
 interface ServiceSidebarProps {
-  categories: ServiceCategory[];
+  scrollRef?: RefObject<HTMLDivElement | null>;
 }
 
-export function ServiceSidebar({ categories }: ServiceSidebarProps) {
-  const [activeId, setActiveId] = useState<string>(categories[0]?.id ?? "");
+export function ServiceSidebar({ scrollRef }: ServiceSidebarProps) {
+  const [activeId, setActiveId] = useState<string>(SERVICES[0]?.id ?? "");
 
-  const handleClick = useCallback((id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  }, []);
+  const handleClick = useCallback(
+    (id: string) => {
+      const el = document.getElementById(id);
+      const container = scrollRef?.current;
+      if (el && container) {
+        const top = el.offsetTop - container.offsetTop;
+        container.scrollTo({ top, behavior: "smooth" });
+      } else if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    [scrollRef],
+  );
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
+    const root = scrollRef?.current ?? null;
 
-    categories.forEach((cat) => {
+    SERVICES.forEach((cat) => {
       const el = document.getElementById(cat.id);
       if (!el) return;
 
@@ -33,7 +41,7 @@ export function ServiceSidebar({ categories }: ServiceSidebarProps) {
             }
           });
         },
-        { rootMargin: "-20% 0px -60% 0px", threshold: 0 },
+        { root, rootMargin: "-10% 0px -70% 0px", threshold: 0 },
       );
 
       observer.observe(el);
@@ -43,11 +51,11 @@ export function ServiceSidebar({ categories }: ServiceSidebarProps) {
     return () => {
       observers.forEach((obs) => obs.disconnect());
     };
-  }, [categories]);
+  }, [scrollRef]);
 
   return (
     <nav aria-label="Service categories" className="space-y-1">
-      {categories.map((cat) => {
+      {SERVICES.map((cat) => {
         const Icon = cat.icon;
         const isActive = activeId === cat.id;
         return (

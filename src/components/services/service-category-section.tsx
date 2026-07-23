@@ -1,17 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { ServiceTile } from "./service-tile";
-import type { ServiceCategory } from "@/data/services";
+import { SERVICES } from "@/data/services";
 
 interface ServiceCategorySectionProps {
-  category: ServiceCategory;
+  id: string;
 }
 
-export function ServiceCategorySection({ category }: ServiceCategorySectionProps) {
+export function ServiceCategorySection({ id }: ServiceCategorySectionProps) {
+  const category = SERVICES.find((c) => c.id === id);
+  if (!category) return null;
   const Icon = category.icon;
 
   return (
