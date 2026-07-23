@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/button";
 import { IMAGES } from "@/lib/images";
 
 const serviceHighlights = [
-  { label: "Interior Renovation & Construction", href: "/services/interior-finishing" },
-  { label: "Joinery & Custom Woodwork", href: "/services/joinery" },
-  { label: "Mechanical & Electromechanical", href: "/services/mechanical-electromechanical" },
-  { label: "Plumbing & Sanitary Works", href: "/services/plumbing-sanitary" },
+  { label: "Interior Renovation & Construction", href: "/services#interior-finishing" },
+  { label: "Joinery & Custom Woodwork", href: "/services#joinery" },
+  { label: "Mechanical & Electromechanical", href: "/services#mechanical-electromechanical" },
+  { label: "Plumbing & Sanitary Works", href: "/services#plumbing-sanitary" },
 ];
 
 const trustIndicators = [

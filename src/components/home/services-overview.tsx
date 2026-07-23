@@ -14,7 +14,7 @@ const services = [
     longDescription:
       "Comprehensive interior renovation and construction solutions for apartments, villas, and commercial spaces. Our licensed team handles everything from structural改造 and fit-outs to precision finishing, delivering high-quality transformations on schedule.",
     icon: PaintRoller,
-    href: "/services/interior-finishing",
+    href: "/services#interior-finishing",
     accent: "from-yellow-800/50 to-yellow-950/70",
     border: "border-amber-800/30",
     hoverBorder: "hover:border-amber-600/50",
@@ -34,7 +34,7 @@ const services = [
     longDescription:
       "Specialist joinery and custom woodwork crafted by skilled woodworkers. From bespoke cabinetry and kitchen installations to decorative millwork and commercial fit-outs, we deliver precision-crafted pieces for residential and hospitality projects.",
     icon: Hammer,
-    href: "/services/joinery",
+    href: "/services#joinery",
     accent: "from-orange-900/60 to-orange-950/80",
     border: "border-orange-800/30",
     hoverBorder: "hover:border-orange-600/50",
@@ -54,7 +54,7 @@ const services = [
     longDescription:
       "Comprehensive mechanical and electromechanical solutions for residential, commercial, and industrial facilities. Our licensed technicians handle home AC installation and repair, HVAC systems, air filtration, ventilation, cladding systems, and electromechanical equipment.",
     icon: Fan,
-    href: "/services/mechanical-electromechanical",
+    href: "/services#mechanical-electromechanical",
     accent: "from-blue-900/60 to-blue-950/80",
     border: "border-blue-800/30",
     hoverBorder: "hover:border-blue-600/50",
@@ -74,7 +74,7 @@ const services = [
     longDescription:
       "End-to-end plumbing and sanitary contracting for commercial, industrial, and residential projects. From system design through installation to ongoing maintenance, fully code-compliant.",
     icon: Droplets,
-    href: "/services/plumbing-sanitary",
+    href: "/services#plumbing-sanitary",
     accent: "from-teal-900/60 to-teal-950/80",
     border: "border-teal-800/30",
     hoverBorder: "hover:border-teal-600/50",

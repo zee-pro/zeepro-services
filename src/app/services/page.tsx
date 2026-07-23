@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { PaintRoller, Hammer, Fan, Droplets } from "lucide-react";
-import { ServiceCard } from "@/components/services/service-card";
+import Link from "next/link";
+import { ChevronRight, Phone } from "lucide-react";
+import { SERVICES } from "@/data/services";
+import { ServiceSidebar } from "@/components/services/service-sidebar";
+import { ServiceCategorySection } from "@/components/services/service-category-section";
+import { Button } from "@/components/ui/button";
+import { BreadcrumbSchema } from "@/components/layout/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -13,98 +18,111 @@ export const metadata: Metadata = {
   },
 };
 
-const services = [
-  {
-    title: "Interior Renovation & Construction",
-    description:
-      "Full-scale apartment, villa, and commercial renovation and construction services — from structural改造 to precision finishing, delivered by licensed professionals.",
-    icon: PaintRoller,
-    href: "/services/interior-finishing",
-    capabilities: [
-      "Apartment and villa renovations",
-      "Commercial fit-out and construction",
-      "Floor and wall tiling works",
-      "Painting and surface finishing",
-    ],
-  },
-  {
-    title: "Joinery & Custom Woodwork",
-    description:
-      "Bespoke cabinetry, kitchen joinery, wardrobe fabrication, decorative millwork, and office fit-out solutions crafted by skilled woodworkers.",
-    icon: Hammer,
-    href: "/services/joinery",
-    capabilities: [
-      "Custom cabinetry and built-in furniture",
-      "Kitchen joinery and countertop installation",
-      "Wardrobe and storage system fabrication",
-      "Decorative woodwork and millwork",
-    ],
-  },
-  {
-    title: "Mechanical & Electromechanical",
-    description:
-      "Comprehensive home AC, HVAC, air filtration, ventilation, cladding, and electromechanical services for residential, commercial, and industrial clients across the UAE.",
-    icon: Fan,
-    href: "/services/mechanical-electromechanical",
-    capabilities: [
-      "Home AC — window, split, cassette & central units",
-      "HVAC installation and maintenance",
-      "Air filtration and ventilation systems",
-      "Cladding system installation",
-    ],
-  },
-  {
-    title: "Plumbing & Sanitary Works",
-    description:
-      "Full plumbing and sanitary contracting services including system design, installation, maintenance, and emergency repairs.",
-    icon: Droplets,
-    href: "/services/plumbing-sanitary",
-    capabilities: [
-      "Plumbing system installation",
-      "Sanitary fixture contracting",
-      "Drainage and wastewater systems",
-      "Emergency leak detection and repair",
-    ],
-  },
-];
-
 export default function ServicesPage() {
   return (
-    <div className="relative overflow-hidden py-24 sm:py-32">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--color-accent)/3%,transparent_50%)]"
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+        ]}
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+      {/* Page header */}
+      <section className="relative overflow-hidden bg-primary py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,oklch(1_0_0/0.05),transparent_50%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
             Our Services
           </p>
-          <h1 className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-bold text-primary-foreground sm:text-4xl lg:text-5xl">
             Licensed{" "}
             <span className="text-accent">Interior Renovation, Construction</span>{" "}
             & Technical Services
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Zeepro delivers specialist renovation, construction, joinery,
-            mechanical, and plumbing services across the UAE. Every activity is
-            fully licensed and executed by qualified professionals.
+          <p className="mt-4 max-w-2xl text-lg text-primary-foreground/60">
+            Every activity is fully licensed and executed by qualified
+            professionals. We deliver renovation, construction, joinery, and
+            technical services to projects throughout the UAE.
           </p>
         </div>
-        <div className="mt-16 grid gap-8 sm:grid-cols-2">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              href={service.href}
-              capabilities={service.capabilities}
-            />
-          ))}
+      </section>
+
+      {/* Main content: sidebar + sections */}
+      <section className="relative overflow-hidden py-12 sm:py-16">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--color-accent)/3%,transparent_50%)]"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
+            {/* Sidebar */}
+            <aside className="lg:sticky lg:top-24 lg:h-fit lg:w-64 lg:shrink-0">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground/60">
+                Categories
+              </p>
+              <ServiceSidebar categories={SERVICES} />
+            </aside>
+
+            {/* Service sections */}
+            <div className="flex-1 space-y-16">
+              {SERVICES.map((category) => (
+                <ServiceCategorySection
+                  key={category.id}
+                  category={category}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative overflow-hidden bg-primary py-20 sm:py-24">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,oklch(1_0_0/0.05),transparent_50%)]"
+        />
+        <div className="relative mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
+            Get Started
+          </p>
+          <h2 className="text-3xl font-bold text-primary-foreground sm:text-4xl">
+            Ready to Start Your Project?
+          </h2>
+          <p className="mt-4 text-lg text-primary-foreground/60">
+            Contact Zeepro to discuss your project requirements and how we can
+            support your next build.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="btn-magnetic gap-2 bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300"
+              >
+                <Phone className="size-4" />
+                Start a Conversation
+                <ChevronRight className="size-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
