@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   phone: "+971504786043",
   phone2: "+971502061768",
   whatsappNumber: "971504786043",
-  address: "Near Insurance Market Metro Station, Al Bashra 1, Dubai",
+  address: "Near Insurance Market Metro Station, Al Barsha 1, Dubai",
 } as const;
 
 export interface NavLink {
