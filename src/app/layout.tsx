@@ -33,27 +33,37 @@ export const metadata: Metadata = {
   },
   description:
     "Zeepro is a UAE-based licensed contractor specializing in interior renovation, construction, joinery, mechanical, and plumbing services.",
-  metadataBase: new URL("https://zeepro.ae"),
+  metadataBase: new URL("https://zeeproservices.com"),
   openGraph: {
     title: "Zeepro | Licensed Interior Renovation, Construction & Technical Services UAE",
     description:
       "Zeepro is a UAE-based licensed contractor specializing in interior renovation, construction, joinery, mechanical, and plumbing services.",
-    url: "https://zeepro.ae",
+    url: "https://zeeproservices.com",
     siteName: "Zeepro",
     locale: "en_AE",
     type: "website",
     images: [
       {
-        url: "/zeepro_logo.png",
+        url: "https://zeeproservices.com/zeepro_logo.png",
         width: 1200,
         height: 630,
         alt: "Zeepro | Licensed Interior Renovation, Construction & Technical Services UAE",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zeepro | Licensed Interior Renovation, Construction & Technical Services UAE",
+    description:
+      "Zeepro is a UAE-based licensed contractor specializing in interior renovation, construction, joinery, mechanical, and plumbing services.",
+    images: ["https://zeeproservices.com/zeepro_logo.png"],
+  },
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: "https://zeeproservices.com",
   },
 };
 
