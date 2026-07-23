@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { CareersContent } from "@/components/careers/careers-content";
+import { JobPostingSchema } from "@/components/layout/job-posting-schema";
+import { BreadcrumbSchema } from "@/components/layout/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -16,5 +18,16 @@ export const metadata: Metadata = {
 };
 
 export default function CareersPage() {
-  return <CareersContent />;
+  return (
+    <>
+      <JobPostingSchema />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Careers", url: "/careers" },
+        ]}
+      />
+      <CareersContent />
+    </>
+  );
 }
