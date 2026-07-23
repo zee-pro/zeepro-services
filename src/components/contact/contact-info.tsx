@@ -14,14 +14,13 @@ const contactDetails = [
   {
     icon: Phone,
     label: "Phone",
-    value: SITE_CONFIG.phone,
+    value: (
+      <>
+        <a href={`tel:${SITE_CONFIG.phone}`} className="block">{SITE_CONFIG.phone}</a>
+        <a href={`tel:${SITE_CONFIG.phone2}`} className="block">{SITE_CONFIG.phone2}</a>
+      </>
+    ),
     href: `tel:${SITE_CONFIG.phone}`,
-  },
-  {
-    icon: Phone,
-    label: "Phone (Alt)",
-    value: SITE_CONFIG.phone2,
-    href: `tel:${SITE_CONFIG.phone2}`,
   },
   {
     icon: MapPin,

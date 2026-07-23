@@ -44,7 +44,7 @@ function PhoneModal({ onClose }: { onClose: () => void }) {
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10"
           >
             <PhoneCall className="size-4 text-accent" />
-            Call (Alt)
+            Call
           </a>
           <a
             href={`sms:${number}`}
@@ -187,13 +187,13 @@ export function Footer() {
                   </span>
                 </a>
               </li>
-              <li>
-                <div className="group flex w-full items-start gap-3">
-                  <Phone className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-                  <div className="flex w-full flex-col gap-2">
-                    <span className="text-xs font-medium text-primary-foreground/40">
-                      Phone
-                    </span>
+              <li className="flex gap-3">
+                <Phone className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                <div className="flex w-full justify-between gap-2">
+                  <span className="shrink-0 text-xs font-medium text-primary-foreground/40">
+                    Phone
+                  </span>
+                  <div className="flex flex-col items-end gap-1">
                     <a
                       href={`tel:${SITE_CONFIG.phone}`}
                       className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground/90"
