@@ -18,6 +18,12 @@ const contactDetails = [
     href: `tel:${SITE_CONFIG.phone}`,
   },
   {
+    icon: Phone,
+    label: "Phone (Alt)",
+    value: SITE_CONFIG.phone2,
+    href: `tel:${SITE_CONFIG.phone2}`,
+  },
+  {
     icon: MapPin,
     label: "Address",
     value: SITE_CONFIG.address,

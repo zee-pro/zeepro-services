@@ -7,8 +7,9 @@ export const SITE_CONFIG = {
   url: "https://zeepro.ae",
   email: "zeepro.services@gmail.com",
   phone: "+971504786043",
+  phone2: "+971502061768",
   whatsappNumber: "971504786043",
-  address: "Zeepro Services, Near Mashreq Metro Station (R33), Dubai, UAE",
+  address: "Near Insurance Market Metro Station, Al Bashra 1, Dubai",
 } as const;
 
 export interface NavLink {

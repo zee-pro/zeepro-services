@@ -40,6 +40,13 @@ function PhoneModal({ onClose }: { onClose: () => void }) {
             Call
           </a>
           <a
+            href={`tel:${SITE_CONFIG.phone2}`}
+            className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10"
+          >
+            <PhoneCall className="size-4 text-accent" />
+            Call (Alt)
+          </a>
+          <a
             href={`sms:${number}`}
             className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10"
           >
@@ -181,19 +188,26 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={handlePhoneClick}
-                  className="group flex w-full cursor-pointer items-center gap-3 text-start transition-colors hover:text-primary-foreground"
-                >
-                  <Phone className="size-4 shrink-0 text-accent transition-transform duration-300 group-hover:scale-110" aria-hidden="true" />
-                  <span className="text-xs font-medium text-primary-foreground/40">
-                    Phone
-                  </span>
-                  <span className="ms-auto text-sm text-primary-foreground/60 group-hover:text-primary-foreground/90 transition-colors">
-                    {copied ? "Copied!" : SITE_CONFIG.phone}
-                  </span>
-                </button>
+                <div className="group flex w-full items-start gap-3">
+                  <Phone className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                  <div className="flex w-full flex-col gap-2">
+                    <span className="text-xs font-medium text-primary-foreground/40">
+                      Phone
+                    </span>
+                    <a
+                      href={`tel:${SITE_CONFIG.phone}`}
+                      className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground/90"
+                    >
+                      {copied ? "Copied!" : SITE_CONFIG.phone}
+                    </a>
+                    <a
+                      href={`tel:${SITE_CONFIG.phone2}`}
+                      className="text-sm text-primary-foreground/60 transition-colors hover:text-primary-foreground/90"
+                    >
+                      {SITE_CONFIG.phone2}
+                    </a>
+                  </div>
+                </div>
               </li>
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />

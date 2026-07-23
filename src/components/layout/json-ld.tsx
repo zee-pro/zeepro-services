@@ -9,7 +9,7 @@ export function JsonLd() {
     slogan: SITE_CONFIG.slogan,
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
-    telephone: SITE_CONFIG.phone,
+    telephone: [SITE_CONFIG.phone, SITE_CONFIG.phone2],
     email: SITE_CONFIG.email,
     address: {
       "@type": "PostalAddress",
