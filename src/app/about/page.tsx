@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CompanyProfile } from "@/components/about/company-profile";
 import { Certifications } from "@/components/about/certifications";
+import { BreadcrumbSchema } from "@/components/layout/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -19,6 +20,12 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "About Us", url: "/about" },
+        ]}
+      />
       <CompanyProfile />
       <Certifications />
     </>

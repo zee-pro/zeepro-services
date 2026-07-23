@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ReviewsContent } from "@/components/reviews/reviews-content";
+import { BreadcrumbSchema } from "@/components/layout/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "Reviews & Testimonials",
@@ -16,5 +17,15 @@ export const metadata: Metadata = {
 };
 
 export default function ReviewsPage() {
-  return <ReviewsContent />;
+  return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Reviews", url: "/reviews" },
+        ]}
+      />
+      <ReviewsContent />
+    </>
+  );
 }

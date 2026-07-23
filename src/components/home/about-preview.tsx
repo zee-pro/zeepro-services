@@ -155,7 +155,7 @@ export function AboutPreview() {
               <div className="pointer-events-none absolute inset-0 opacity-[0.06] transition-opacity duration-500 group-hover:opacity-[0.1]">
                 <Image
                   src={IMAGES.about}
-                  alt=""
+                  alt="Zeepro construction team and project portfolio"
                   fill
                   sizes="400px"
                   className="object-cover"

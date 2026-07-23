@@ -90,7 +90,7 @@ export function Hero() {
       <motion.div style={{ y: bgY }} className="absolute inset-0">
         <Image
           src={IMAGES.hero.src}
-          alt=""
+          alt={IMAGES.hero.alt}
           fill
           priority
           sizes="100vw"
