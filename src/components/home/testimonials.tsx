@@ -8,7 +8,7 @@ import type { Review } from "@/data/reviews";
 
 function StarRating({ rating, animate }: { rating: number; animate?: boolean }) {
   return (
-    <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
+    <span className="flex gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, i) => (
         <motion.div
           key={i}
@@ -33,7 +33,7 @@ function StarRating({ rating, animate }: { rating: number; animate?: boolean }) 
           />
         </motion.div>
       ))}
-    </div>
+    </span>
   );
 }
 
