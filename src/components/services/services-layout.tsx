@@ -10,7 +10,7 @@ export function ServicesLayout() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden border-t border-border/30 pt-16">
+    <div className="h-screen flex flex-col overflow-hidden border-t border-border/30 pt-16 min-[876px]:pt-[4.75rem]">
       <div className="flex flex-1 min-h-0 overflow-hidden">
         {/* Desktop sidebar */}
         <aside className="hidden lg:flex w-80 shrink-0 flex-col border-r border-border/30 bg-background p-6">
