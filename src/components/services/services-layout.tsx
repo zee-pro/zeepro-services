@@ -10,10 +10,10 @@ export function ServicesLayout() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden border-t border-border/30 pt-16 min-[876px]:pt-[4.75rem]">
-      <div className="flex flex-1 min-h-0 overflow-hidden">
-        {/* Desktop sidebar */}
-        <aside className="hidden lg:flex w-80 shrink-0 flex-col border-r border-border/30 bg-background p-6">
+    <div className="h-screen flex flex-col border-t border-border/30 pt-16 min-[876px]:pt-[4.75rem]">
+      <div className="flex flex-1 min-h-0">
+        {/* Desktop sidebar — sticky so it stays below header when page scrolls */}
+        <aside className="hidden lg:flex w-80 shrink-0 flex-col border-r border-border/30 bg-background p-6 sticky top-[4.75rem] h-fit max-h-[calc(100dvh-4.75rem)] overflow-y-auto scrollbar-hidden">
           <div className="mb-6">
             <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent">
               Our Services
