@@ -243,16 +243,17 @@
 /* ── Animated Gradient Background ────────────────────────────── */
 @keyframes gradient-shift {
   0%, 100% {
-    background-position: 0% 50%;
+    transform: translateX(0%);
   }
   50% {
-    background-position: 100% 50%;
+    transform: translateX(-50%);
   }
 }
 
 .animate-gradient-bg {
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
+  will-change: transform;
 }
 
 /* ── Aurora Effect ───────────────────────────────────────────── */
@@ -278,14 +279,17 @@
 
 .aurora-blob-1 {
   animation: aurora-1 12s ease-in-out infinite;
+  will-change: transform;
 }
 
 .aurora-blob-2 {
   animation: aurora-2 15s ease-in-out infinite;
+  will-change: transform;
 }
 
 .aurora-blob-3 {
   animation: aurora-3 18s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* ── Floating Particles ──────────────────────────────────────── */
@@ -299,12 +303,13 @@
 .floating-particle {
   animation: float-particle var(--duration, 6s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
+  will-change: transform;
 }
 
 /* ── Shimmer Effect ──────────────────────────────────────────── */
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .shimmer {
@@ -316,6 +321,7 @@
   );
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* ── Pulse Glow ──────────────────────────────────────────────── */
