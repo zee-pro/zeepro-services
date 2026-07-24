@@ -35,8 +35,10 @@ export function MobileCategoryBar({ scrollRef }: MobileCategoryBarProps) {
       const el = document.getElementById(id);
       const container = scrollRef?.current;
       if (el && container) {
+        const dropdown = container.querySelector<HTMLElement>("[data-mobile-dropdown]");
+        const offset = dropdown ? dropdown.offsetHeight + 8 : 0;
         if (container.scrollHeight > container.clientHeight) {
-          container.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+          container.scrollTo({ top: el.offsetTop - offset, behavior: "smooth" });
         } else {
           el.scrollIntoView({ behavior: "smooth", block: "start" });
         }
@@ -44,6 +46,25 @@ export function MobileCategoryBar({ scrollRef }: MobileCategoryBarProps) {
     },
     [scrollRef],
   );
+
+  // Handle hash navigation on initial load (e.g. navigating from footer)
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const container = scrollRef?.current;
+    const el = document.getElementById(hash);
+    if (!el || !container) return;
+    const raf = requestAnimationFrame(() => {
+      const dropdown = container.querySelector<HTMLElement>("[data-mobile-dropdown]");
+      const offset = dropdown ? dropdown.offsetHeight + 8 : 0;
+      if (container.scrollHeight > container.clientHeight) {
+        container.scrollTo({ top: el.offsetTop - offset });
+      } else {
+        el.scrollIntoView({ block: "start" });
+      }
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [scrollRef]);
 
   useEffect(() => {
     const container = scrollRef?.current;
