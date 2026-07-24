@@ -40,20 +40,17 @@ export function CompanyProfile() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
+            <p className="mx-4 mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
               About Us
             </p>
-            <p className="mb-2 text-sm font-medium italic tracking-wide text-accent/80">
-              Where Expertise Meets Execution
-            </p>
             <h1
-              className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
+              className="mx-4 text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
               style={{ fontSize: "clamp(1.875rem, 1.5rem + 2vw, 3rem)" }}
             >
               Licensed Technical Contractor{" "}
               <span className="text-accent">Serving the UAE</span>
             </h1>
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
+            <div className="mx-4 mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
               <p>
                 Zeepro is a UAE-based licensed contractor specialising in
                 interior renovation, construction, joinery, mechanical, and

@@ -18,8 +18,6 @@ export function ServiceSidebar({ scrollRef }: ServiceSidebarProps) {
       if (el && container) {
         const top = el.offsetTop - container.offsetTop;
         container.scrollTo({ top, behavior: "smooth" });
-      } else if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
       }
     },
     [scrollRef],

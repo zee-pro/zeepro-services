@@ -7,9 +7,11 @@ import type { ServiceSubItem } from "@/data/services";
 interface ServiceTileProps {
   service: ServiceSubItem;
   index: number;
+  expanded: boolean;
+  onToggle: () => void;
 }
 
-export function ServiceTile({ service, index }: ServiceTileProps) {
+export function ServiceTile({ service, index, expanded, onToggle }: ServiceTileProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,16 +29,21 @@ export function ServiceTile({ service, index }: ServiceTileProps) {
           src={service.image}
           alt={service.title}
           fill
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 1024px) 33vw, 50vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-        <h4 className="absolute bottom-3 left-4 right-4 text-base font-semibold text-white drop-shadow-md">
+        <h4 className="absolute bottom-2 left-3 right-3 text-xs font-semibold text-white drop-shadow-md sm:bottom-3 sm:left-4 sm:right-4 sm:text-base">
           {service.title}
         </h4>
       </div>
-      <div className="p-4">
-        <p className="text-sm leading-relaxed text-muted-foreground">
+      <div className="p-3 sm:p-4">
+        <p
+          onClick={onToggle}
+          className={`text-xs leading-relaxed text-muted-foreground sm:text-sm sm:line-clamp-none ${
+            expanded ? "line-clamp-none" : "line-clamp-3"
+          } cursor-pointer sm:cursor-default`}
+        >
           {service.description}
         </p>
       </div>
