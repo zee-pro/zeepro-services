@@ -230,7 +230,7 @@ export function Hero() {
                   <ChevronRight className="size-4" />
                 </Button>
               </Link>
-              <Link href="/services">
+              <Link href="/services#interior-finishing">
                 <Button
                   variant="outline"
                   size="lg"

@@ -129,6 +129,7 @@ export function ContactForm() {
 
       setIsSubmitted(true);
       reset();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
       setSubmitError("Something went wrong. Please try again or contact us directly.");
     }

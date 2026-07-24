@@ -15,10 +15,10 @@ const contactDetails = [
     icon: Phone,
     label: "Phone",
     value: (
-      <>
-        <a href={`tel:${SITE_CONFIG.phone}`} className="block">{SITE_CONFIG.phone}</a>
-        <a href={`tel:${SITE_CONFIG.phone2}`} className="block">{SITE_CONFIG.phone2}</a>
-      </>
+      <span className="block leading-relaxed">
+        {SITE_CONFIG.phone}<br />
+        {SITE_CONFIG.phone2}
+      </span>
     ),
     href: `tel:${SITE_CONFIG.phone}`,
   },
