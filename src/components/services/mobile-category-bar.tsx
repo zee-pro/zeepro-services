@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef, type RefObject } from "react";
+import { useState, useEffect, useCallback, type RefObject } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { useScroll, useMotionValueEvent } from "framer-motion";
 import { SERVICES } from "@/data/services";
 
 interface MobileCategoryBarProps {
@@ -11,23 +10,6 @@ interface MobileCategoryBarProps {
 
 export function MobileCategoryBar({ scrollRef }: MobileCategoryBarProps) {
   const [activeId, setActiveId] = useState<string>(SERVICES[0]?.id ?? "");
-  const [titleHidden, setTitleHidden] = useState(false);
-  const lastScrollTop = useRef(0);
-  const titleRef = useRef<HTMLDivElement>(null);
-
-  const { scrollY } = useScroll({ container: scrollRef });
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const prev = lastScrollTop.current;
-    const diff = latest - prev;
-    lastScrollTop.current = latest;
-
-    if (diff > 0 && latest > 20 && !titleHidden) {
-      setTitleHidden(true);
-    } else if (diff < 0 && titleHidden && latest < 10) {
-      setTitleHidden(false);
-    }
-  });
 
   const handleChange = useCallback(
     (id: string) => {
@@ -98,17 +80,8 @@ export function MobileCategoryBar({ scrollRef }: MobileCategoryBarProps) {
 
   return (
     <>
-      {/* Title section — CSS transition for smooth height collapse */}
-      <div
-        ref={titleRef}
-        className="lg:hidden overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
-        style={{
-          opacity: titleHidden ? 0 : 1,
-          maxHeight: titleHidden ? "0px" : "400px",
-          marginTop: titleHidden ? 0 : 12,
-        }}
-      >
-        <div className="px-4 pb-3">
+      {/* Title section */}
+      <div className="lg:hidden px-4 pt-4 pb-3">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent">
             Our Services
           </p>
@@ -130,7 +103,6 @@ export function MobileCategoryBar({ scrollRef }: MobileCategoryBarProps) {
             <ChevronRight className="size-3 animate-pulse" />
           </div>
         </div>
-      </div>
 
       {/* Dropdown — sticks to top after title scrolls away */}
       <div data-mobile-dropdown className="lg:hidden sticky -top-2 z-20 bg-background border-t border-border/30">
