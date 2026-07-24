@@ -16,8 +16,11 @@ export function ServiceSidebar({ scrollRef }: ServiceSidebarProps) {
       const el = document.getElementById(id);
       const container = scrollRef?.current;
       if (el && container) {
-        const top = el.offsetTop - container.offsetTop;
-        container.scrollTo({ top, behavior: "smooth" });
+        if (container.scrollHeight > container.clientHeight) {
+          container.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+        } else {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     },
     [scrollRef],

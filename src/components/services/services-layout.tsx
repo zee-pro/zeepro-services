@@ -10,7 +10,7 @@ export function ServicesLayout() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="h-screen flex flex-col border-t border-border/30 pt-16 min-[876px]:pt-[4.75rem]">
+    <div className="h-screen lg:h-auto lg:min-h-screen flex flex-col border-t border-border/30 pt-16 min-[876px]:pt-[4.75rem]">
       <div className="flex flex-1 min-h-0">
         {/* Desktop sidebar — sticky so it stays below header when page scrolls */}
         <aside className="hidden lg:flex w-80 shrink-0 flex-col border-r border-border/30 bg-background p-6 sticky top-[4.75rem] h-fit max-h-[calc(100dvh-4.75rem)] overflow-y-auto scrollbar-hidden">
@@ -38,7 +38,7 @@ export function ServicesLayout() {
         </aside>
 
         {/* Scrollable content */}
-        <div ref={scrollRef} className="flex-1 overflow-y-auto m-4 lg:m-8 scrollbar-hidden">
+        <div ref={scrollRef} className="relative flex-1 overflow-y-auto m-4 lg:m-8 scrollbar-hidden">
           {/* Mobile: title + sticky category bar (inside scroll container) */}
           <MobileCategoryBar scrollRef={scrollRef} />
 
