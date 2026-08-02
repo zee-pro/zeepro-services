@@ -1,10 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { writeFile, readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { checkRateLimit } from "@/lib/rate-limit";
-
-const DATA_PATH = join(process.cwd(), "data", "applications.json");
+import { readApplications, addApplication } from "@/lib/applications-store";
 
 const applicationSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -14,19 +11,6 @@ const applicationSchema = z.object({
   experience: z.string().optional(),
   message: z.string().min(10, "Please provide at least 10 characters"),
 });
-
-async function readApplications() {
-  try {
-    const raw = await readFile(DATA_PATH, "utf-8");
-    return JSON.parse(raw);
-  } catch {
-    return [];
-  }
-}
-
-async function writeApplications(applications: unknown) {
-  await writeFile(DATA_PATH, JSON.stringify(applications, null, 2), "utf-8");
-}
 
 export async function POST(request: Request) {
   const ip =
@@ -49,17 +33,14 @@ export async function POST(request: Request) {
     const body = await request.json();
     const data = applicationSchema.parse(body);
 
-    const applications = await readApplications();
     const id = String(Date.now());
     const date = new Date().toISOString();
 
-    applications.unshift({
+    await addApplication({
       id,
       ...data,
       date,
     });
-
-    await writeApplications(applications);
 
     return NextResponse.json(
       { success: true, message: "Application submitted" },
