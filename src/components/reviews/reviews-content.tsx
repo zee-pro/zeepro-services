@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ReviewForm } from "@/components/reviews/review-form";
-import { Star } from "lucide-react";
+import { Loader2, Star } from "lucide-react";
 import type { Review } from "@/data/reviews";
 
 function StarRating({ rating }: { rating: number }) {
@@ -22,7 +22,9 @@ function StarRating({ rating }: { rating: number }) {
 
 export function ReviewsContent() {
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(6);
+  const [isLoading, setIsLoading] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
   const loadReviews = () => {
     fetch("/api/reviews")
@@ -40,6 +42,27 @@ export function ReviewsContent() {
 
   const visible = reviews.slice(0, visibleCount);
   const hasMore = visibleCount < reviews.length;
+
+  useEffect(() => {
+    if (!hasMore) return;
+
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !isLoading) {
+          setIsLoading(true);
+          setVisibleCount((c) => c + 6);
+          window.setTimeout(() => setIsLoading(false), 300);
+        }
+      },
+      { rootMargin: "200px" },
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [hasMore, visibleCount, isLoading]);
 
   return (
     <>
@@ -112,13 +135,8 @@ export function ReviewsContent() {
               </div>
 
               {hasMore && (
-                <div className="mt-8 text-center sm:hidden">
-                  <button
-                    onClick={() => setVisibleCount((c) => c + 3)}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-accent/80"
-                  >
-                    Show more
-                  </button>
+                <div ref={sentinelRef} className="mt-10 flex justify-center py-2">
+                  <Loader2 className="size-5 animate-spin text-accent" aria-hidden="true" />
                 </div>
               )}
             </div>
