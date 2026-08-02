@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { JsonLd } from "@/components/layout/json-ld";
+import { GoogleAnalytics } from "@/components/layout/google-analytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -92,6 +95,9 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppButton />
+        <GoogleAnalytics />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

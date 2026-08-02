@@ -130,6 +130,11 @@ export function ContactForm() {
       setIsSubmitted(true);
       reset();
       window.scrollTo({ top: 0, behavior: "smooth" });
+      window.gtag?.(
+        "event",
+        "generate_lead",
+        { event_category: "contact", event_label: data.service },
+      );
     } catch {
       setSubmitError("Something went wrong. Please try again or contact us directly.");
     }

@@ -73,9 +73,6 @@ export function AboutPreview() {
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-accent">
               Why Zeepro
             </p>
-            <p className="mb-2 text-sm font-medium italic tracking-wide text-accent/80">
-              Where Expertise Meets Execution
-            </p>
             <h2
               className="text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl"
               style={{ fontSize: "clamp(1.875rem, 1.5rem + 2vw, 3rem)" }}
