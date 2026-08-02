@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { readReviews, addReview } from "@/lib/reviews-store";
+import { sendNewReviewEmail } from "@/lib/notifications";
 
 const reviewSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -42,11 +43,15 @@ export async function POST(request: Request) {
       month: "long",
     });
 
-    await addReview({
+    const review = {
       id,
       ...data,
       date,
-    });
+    };
+
+    await addReview(review);
+
+    await Promise.allSettled([sendNewReviewEmail(review)]);
 
     return NextResponse.json(
       { success: true, message: "Review submitted" },

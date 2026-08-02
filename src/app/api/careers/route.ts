@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { readApplications, addApplication } from "@/lib/applications-store";
+import { sendCareerApplicationEmail } from "@/lib/notifications";
 
 const applicationSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -36,11 +37,15 @@ export async function POST(request: Request) {
     const id = String(Date.now());
     const date = new Date().toISOString();
 
-    await addApplication({
+    const application = {
       id,
       ...data,
       date,
-    });
+    };
+
+    await addApplication(application);
+
+    await Promise.allSettled([sendCareerApplicationEmail(application)]);
 
     return NextResponse.json(
       { success: true, message: "Application submitted" },
