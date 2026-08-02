@@ -4,18 +4,22 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 
 const images = [
-  { src: "/images/services/interior.jpg", alt: "Interior Renovation" },
+  { src: "/images/services/villa-renovation.jpg", alt: "Villa Renovation" },
+  { src: "/images/services/commercial-fit-out.jpg", alt: "Commercial Fit-Out" },
   { src: "/images/services/joinery.jpg", alt: "Joinery" },
   { src: "/images/services/mechanical2.jpg", alt: "Mechanical" },
   { src: "/images/services/plumbing.jpg", alt: "Plumbing" },
-  { src: "/images/services/interior1.jpg", alt: "Interior" },
-  { src: "/images/services/joinery1.jpg", alt: "Joinery" },
-  { src: "/images/services/mechanical.jpg", alt: "Mechanical" },
-  { src: "/images/services/plumbing1.jpg", alt: "Plumbing" },
+  { src: "/images/services/wall-tiling.webp", alt: "Floor & Wall Tiling" },
+  { src: "/images/services/painting-surface-finishing.jpg", alt: "Painting & Finishing" },
+  { src: "/images/services/ceiling-installation.jpg", alt: "Ceiling Installation" },
+  { src: "/images/services/ac-installation.webp", alt: "AC Installation" },
+  { src: "/images/services/ventilation-system.jpg", alt: "Ventilation" },
+  { src: "/images/services/cladding-installation.jpg", alt: "Cladding" },
+  { src: "/images/services/leak-detection.jpg", alt: "Leak Detection" },
+  { src: "/images/services/decorative-millwork.avif", alt: "Decorative Millwork" },
+  { src: "/images/services/joinery1.jpg", alt: "Custom Cabinetry" },
+  { src: "/images/services/plumbing1.jpg", alt: "Plumbing Installation" },
   { src: "/images/services/interior2.jpg", alt: "Interior" },
-  { src: "/images/services/joinery2.jpg", alt: "Joinery" },
-  { src: "/images/services/interior3.jpg", alt: "Interior" },
-  { src: "/images/services/joinery3.jpg", alt: "Joinery" },
 ];
 
 export function ServiceImageCarousel() {

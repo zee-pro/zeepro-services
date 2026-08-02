@@ -23,37 +23,37 @@ export const SERVICES: ServiceCategory[] = [
     icon: PaintRoller,
     description:
       "Full-scale apartment, villa, and commercial renovation and construction services — from structural works to precision finishing, delivered by licensed professionals.",
-    image: "/images/services/interior.jpg",
+    image: "/images/services/interior3.jpg",
     services: [
       {
         title: "Apartment & Villa Renovation",
         description:
           "Complete renovation solutions for residential spaces, including layout reconfiguration, structural modifications, and full interior transformation.",
-        image: "/images/services/interior1.jpg",
+        image: "/images/services/villa-renovation.jpg",
       },
       {
         title: "Commercial Fit-Out",
         description:
           "Office, retail, and hospitality fit-out services delivering functional and aesthetically refined commercial environments on schedule.",
-        image: "/images/services/interior2.jpg",
+        image: "/images/services/commercial-fit-out.jpg",
       },
       {
         title: "Floor & Wall Tiling",
         description:
           "Expert tiling works in ceramic, porcelain, marble, and granite for floors and walls across residential and commercial projects.",
-        image: "/images/services/interior3.jpg",
+        image: "/images/services/wall-tiling.webp",
       },
       {
         title: "Painting & Surface Finishing",
         description:
           "Professional painting services for interior and exterior surfaces, including surface preparation, priming, and premium finish coats.",
-        image: "/images/services/interior.jpg",
+        image: "/images/services/painting-surface-finishing.jpg",
       },
       {
         title: "Ceiling & Partition Installation",
         description:
           "Gypsum, suspended, and decorative ceiling systems alongside drywall partition installation for space division and acoustic control.",
-        image: "/images/services/interior1.jpg",
+        image: "/images/services/ceiling-installation.jpg",
       },
     ],
   },
@@ -87,7 +87,7 @@ export const SERVICES: ServiceCategory[] = [
         title: "Decorative Millwork",
         description:
           "Ornamental woodwork, wall paneling, crown molding, and custom architectural millwork that elevates interior aesthetics.",
-        image: "/images/services/joinery1.jpg",
+        image: "/images/services/decorative-millwork.avif",
       },
     ],
   },
@@ -103,7 +103,7 @@ export const SERVICES: ServiceCategory[] = [
         title: "Home AC Installation & Repair",
         description:
           "Professional installation, servicing, and repair of window, split, cassette, and central air conditioning units for homes and apartments.",
-        image: "/images/services/mechanical1.jpg",
+        image: "/images/services/ac-installation.webp",
       },
       {
         title: "HVAC Systems",
@@ -115,13 +115,13 @@ export const SERVICES: ServiceCategory[] = [
         title: "Ventilation & Air Filtration",
         description:
           "Installation and servicing of ventilation ductwork, exhaust systems, and advanced air filtration units for improved indoor air quality.",
-        image: "/images/services/mechanical1.jpg",
+        image: "/images/services/ventilation-system.jpg",
       },
       {
         title: "Cladding System Installation",
         description:
           "Exterior and interior cladding system installation including aluminum, composite, and insulated panels for thermal and aesthetic performance.",
-        image: "/images/services/mechanical2.jpg",
+        image: "/images/services/cladding-installation.jpg",
       },
     ],
   },
@@ -155,7 +155,7 @@ export const SERVICES: ServiceCategory[] = [
         title: "Emergency Leak Detection & Repair",
         description:
           "Rapid-response leak detection using modern diagnostic tools, followed by efficient repair to prevent water damage and structural issues.",
-        image: "/images/services/plumbing1.jpg",
+        image: "/images/services/leak-detection.jpg",
       },
     ],
   },
